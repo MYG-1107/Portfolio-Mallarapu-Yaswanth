@@ -337,6 +337,26 @@
                 font-size: 1.2rem;
             }
         }
+            @media (max-width: 768px) {
+    .profile-logo {
+        top: 10px;
+        left: 60px; /* Move right to avoid hamburger icon */
+    }
+}
+            @media (max-width: 768px) {
+    #hero .btn {
+        padding: 1.2rem 3rem;
+        font-size: 1.3rem;
+    }
+}
+            @media (max-width: 768px) {
+    nav {
+        width: 100%;
+    }
+}
+            {
+    scroll-padding-top: 80px; /* Adjust based on nav height */
+}
     </style>
     <style>
   img {
@@ -369,6 +389,56 @@
             color: blue; /* Sets the text color to blue */
             font-style: italic; /* Optional: make it italic */
         }
+            /* Hamburger Menu Styles */
+.hamburger {
+    display: none; /* Hidden by default on larger screens */
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: #fff;
+    margin: 5px 0;
+    transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* Mobile Navigation */
+@media (max-width: 768px) {
+    nav ul {
+        display: none; /* Hide nav links by default on mobile */
+        flex-direction: column;
+        position: absolute;
+        top: 70px; /* Adjust based on nav height */
+        left: 0;
+        width: 100%;
+        background: #5ce137;
+        padding: 1rem;
+        box-shadow: 0 8px 0 #252525;
+    }
+
+    nav ul.active {
+        display: flex; /* Show when hamburger is clicked */
+    }
+
+    .hamburger {
+        display: block; /* Show hamburger icon on mobile */
+    }
+}
     </style>
     <style>
         .centered-image {
@@ -380,6 +450,11 @@
 <body>
     <!-- Navigation -->
     <nav>
+            <div class="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
         <ul>
             <li><img src="1699555731008.jpg" alt="My Profile Photo" class="profile-logo"></li>
             <li><a href="#hero">Home</a></li>
@@ -685,6 +760,22 @@
                 alert('Copying is disabled on this webpage!');
             });
         });
+        // Hamburger Menu Toggle
+const hamburger = document.querySelector('.hamburger');
+const navUl = document.querySelector('nav ul');
+
+hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navUl.classList.toggle('active');
+});
+
+// Close menu when a nav link is clicked
+document.querySelectorAll('nav ul li a').forEach(link => {
+    link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navUl.classList.remove('active');
+    });
+});
     </script>
 </body>
 </html>
