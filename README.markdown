@@ -1,6 +1,6 @@
 # Mallarapu Yaswanth Portfolio
-
-## Overview
+#
+# Overview
 This is a personal portfolio website showcasing the skills, projects, internships, education, and achievements of Mallarapu Yaswanth, a Computer Science and Engineering student specializing in AI & ML. The website is designed with a modern, neubrutalist aesthetic, featuring interactive elements and a clean, responsive layout.
 
 ## Features
@@ -58,3 +58,6 @@ For inquiries, reach out to:
 - Email: [mallarapuyaswanth05@gmail.com](mailto:mallarapuyaswanth05@gmail.com)
 - GitHub: [MYG-4969](https://github.com/MYG-4969)
 - LinkedIn: [my2004](https://linkedin.com/in/my2004)
+
+# Portfolio-Mallarapu-Yaswanth
+A great place to showcase my projects.
