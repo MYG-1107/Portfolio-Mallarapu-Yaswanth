@@ -43,422 +43,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mallarapu Yaswanth - Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@700&display=swap" rel="stylesheet">
-    <style>
-        /* CSS Reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-            p {
-  text-align: justify;
-}
-
-        body {
-            font-family: 'Merriweather', serif;
-            color: #1a1a1a;
-            background: #fafa03;
-            overflow-x: hidden;
-            position: relative;
-        }
-
-        /* Neubrutalism Grain Texture */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAFElEQVQIW2NkYGD4z8DAwMgABXAG/gG4W2q0PAAAAABJRU5ErkJggg==') repeat;
-            opacity: 0.1;
-            z-index: -1;
-        }
-
-        /* Navigation Bar */
-        nav {
-            background: #5ce137;
-            color: #ffffff;
-            padding: 1.5rem;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 8px 8px 0 #252525;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-        }
-
-        nav ul li a {
-            color: #fff;
-            text-decoration: none;
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 1.5rem;
-            transition: transform 0.2s;
-        }
-
-        nav ul li a:hover {
-            transform: translateY(-3px);
-            color: #08d9d6;
-        }
-
-        /* Hero Section */
-        #hero {
-            height: 100vh;
-            background: #0a0006;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: #fff;
-            position: relative;
-            overflow: hidden;
-        }
-
-        #hero canvas {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-        }
-
-        #hero .hero-content {
-            z-index: 1;
-            padding: 2rem;
-            background: #ff2e63;
-            box-shadow: 12px 12px 0 #08d9d6;
-            border: 4px solid #1a1a1a;
-        }
-
-        #hero h1 {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 5rem;
-            margin-bottom: 1rem;
-            color: #f5f5f5;
-        }
-
-        #hero p {
-            font-family: 'Merriweather', serif; 
-            font-size: 20xp;
-            margin-bottom: 2rem;
-            color: #f5f5f5;
-        }
-
-        #hero .btn {
-            padding: 1rem 2.5rem;
-            background: #08d9d6;
-            color: #1a1a1a;
-            text-decoration: none;
-            font-family: 'Merriweather', serif; 
-            font-size: 1.5rem;
-            border: 4px solid #1a1a1a;
-            box-shadow: 8px 8px 0 #252525;
-            transition: transform 0.2s;
-        }
-
-        #hero .btn:hover {
-            transform: translate(-4px, -4px);
-            box-shadow: 12px 12px 0 #252525;
-        }
-
-        /* Sections */
-        section {
-            padding: 5rem 2rem;
-            max-width: 1200px;
-            margin: auto;
-            background: #f5f5f5;
-            border: 4px solid #1a1a1a;
-            box-shadow: 12px 12px 0 #ff2e63;
-            margin-bottom: 3rem;
-        }
-
-        section h2 {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 3.5rem;
-            color: #252525;
-            margin-bottom: 2rem;
-            text-align: center;
-            border-bottom: 6px solid #08d9d6;
-        }
-
-        /* Resume Sections */
-        .resume-section {
-            margin-bottom: 2rem;
-        }
-
-        .resume-section h3 {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 2rem;
-            color: #ff2e63;
-            margin-bottom: 1rem;
-            margin-bottom: 0.5rem;
-            text-shadow: 3px 3px 0 #252525;
-        }
-
-        .resume-section h4 {
-            font-size: 1.5rem;
-            color: #252525;
-            margin-bottom: 0.5rem;
-        }
-
-        .resume-section p, .resume-section ul {
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
-            color: #333;
-        }
-
-        .resume-section ul {
-            list-style: none;
-            padding-left: 1rem;
-        }
-
-        .resume-section ul li {
-            position: relative;
-            padding-left: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .resume-section ul li::before {
-            content: '■';
-            position: absolute;
-            left: 0;
-            color: #08d9d6;
-            font-size: 1.2rem;
-        }
-
-        .resume-section a {
-            color: #ff2e63;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .resume-section a:hover {
-            color: #08d9d6;
-        }
-
-        /* Contact Section */
-        #contact {
-            font-size: 1.9rem;
-            text-align: center;
-            margin-top: 1rem;
-            background: #f8f5f5;
-            color: #5666c5;
-        }
-
-        #contact p a {
-            color: #4e04fb;
-        }
-
-        #contact form {
-            max-width: 500px;
-            margin: 2rem auto;
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        #contact input, #contact textarea {
-            padding: 1rem;
-            background: #6be888;
-            border: 3px solid #eff847;
-            font-size: 'Montserrat', sans-serif;
-            font-size: 5rem;
-            color: #72d770;
-            box-shadow: 6px 6px 0 #ff2e63;
-        }
-
-        #contact textarea {
-            resize: vertical;
-            min-height: 6rem;
-        }
-
-        #contact button {
-            padding: 1rem;
-            background: #08d9d6;
-            color: #2854dae4;
-            font-family: 'Merriweather', serif; 
-            padding: 1rem;
-            font-size: 2.5rem;
-            background: #f1f39f;
-            border: 3px solid #84e24a;
-            box-shadow: 8px 8px 0 #ff2e63;
-            cursor: pointer;
-            transition: transform 0.2s;
-        }
-
-        #contact button:hover {
-            transform: translate(-4px, -4px);
-            box-shadow: 12px 12px 0 #ff2e63;
-        }
-
-        #form-message {
-            text-align: center;
-            margin-top: 1rem;
-            font-weight: bold;
-            color: #08d9d6;
-        }
-
-        /* Footer */
-        footer {
-            background: #1a1a1a;
-            color: #f5f5f5;
-            text-align: center;
-            padding: 1.5rem;
-            box-shadow: 0 -8px 0 #ff2e63;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            #hero h1 {
-                font-size: 3rem;
-            }
-
-            #hero p {
-                font-size: 1.2rem;
-            }
-
-            nav ul {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            section h2 {
-                font-size: 2.5rem;
-            }
-
-            .resume-section h3 {
-                font-size: 1.5rem;
-            }
-
-            .resume-section h4 {
-                font-size: 1.2rem;
-            }
-        }
-            @media (max-width: 768px) {
-    .profile-logo {
-        top: 10px;
-        left: 60px; /* Move right to avoid hamburger icon */
-    }
-}
-            @media (max-width: 768px) {
-    #hero .btn {
-        padding: 1.2rem 3rem;
-        font-size: 1.3rem;
-    }
-}
-            @media (max-width: 768px) {
-    nav {
-        width: 100%;
-    }
-}
-            {
-    scroll-padding-top: 80px; /* Adjust based on nav height */
-}
-    </style>
-    <style>
-  img {
-    border-radius: 20px 20px 20px 20px; /* Top-left and bottom-left corners rounded */
-  }
-</style>
-<style>
-        /* --- Styles for the circular logo --- */
-        .profile-logo {
-            position: absolute; /* Positions the logo relative to the viewport/body */
-            top: 15px;          /* Distance from the top edge */
-            left: 15px;         /* Distance from the left edge */
-            width: 60px;        /* Sets the width of the image */
-            height: 60px;       /* Sets the height of the image (equal to width for perfect circle) */
-            border-radius: 50%; /* This makes the image circular */
-            object-fit: cover;  /* Ensures the image fills the circle without distortion, cropping as needed */
-            border: 2px solid #3498db; /* Optional: Adds a blue border around the circle */
-            z-index: 1000;      /* Ensures the logo stays on top of other content */
-        }
-    </style>
-    <style>
-        /* Define a CSS class named 'highlight-red' */
-        .highlight-red {
-            color: red; /* Sets the text color to red */
-            font-weight: bold; /* Optional: make it bold too */
-        }
-
-        /* Define another CSS class named 'attention-blue' */
-        .attention-blue {
-            color: blue; /* Sets the text color to blue */
-            font-style: italic; /* Optional: make it italic */
-        }
-            /* Hamburger Menu Styles */
-.hamburger {
-    display: none; /* Hidden by default on larger screens */
-    cursor: pointer;
-    padding: 0.5rem;
-}
-
-.hamburger span {
-    display: block;
-    width: 25px;
-    height: 3px;
-    background: #fff;
-    margin: 5px 0;
-    transition: all 0.3s ease;
-}
-
-.hamburger.active span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-}
-
-.hamburger.active span:nth-child(2) {
-    opacity: 0;
-}
-
-.hamburger.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(7px, -7px);
-}
-
-/* Mobile Navigation */
-@media (max-width: 768px) {
-    nav ul {
-        display: none; /* Hide nav links by default on mobile */
-        flex-direction: column;
-        position: absolute;
-        top: 70px; /* Adjust based on nav height */
-        left: 0;
-        width: 100%;
-        background: #5ce137;
-        padding: 1rem;
-        box-shadow: 0 8px 0 #252525;
-    }
-
-    nav ul.active {
-        display: flex; /* Show when hamburger is clicked */
-    }
-
-    .hamburger {
-        display: block; /* Show hamburger icon on mobile */
-    }
-}
-    </style>
-    <style>
-        .centered-image {
-            display: block;
-            margin: 0 auto;
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@700&family=Merriweather&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <!-- Navigation -->
     <nav>
-            <div class="hamburger">
-    <span></span>
-    <span></span>
-    <span></span>
-</div>
         <ul>
             <li><img src="1699555731008.jpg" alt="My Profile Photo" class="profile-logo"></li>
             <li><a href="#hero">Home</a></li>
@@ -478,10 +68,10 @@
     <section id="hero">
         <canvas id="three-canvas"></canvas>
         <div class="hero-content">
-            <img src="1699555731008.jpg" alt="Styled image" stylse="border: 2px solid black; border-radius: 10px; ">
+            <img src="1699555731008.jpg" alt="Styled image">
             <h1>MALLARAPU YASWANTH</h1>
             <h3>Student at</h3>
-            <p><a><span class="attention-blue" center>Vaagdevi College of Engineering</span></a>  </p>
+            <p><a><span class="attention-blue">Vaagdevi College of Engineering</span></a></p>
             <a href="#projects" class="btn">View My Work</a>
         </div>
     </section>
@@ -546,9 +136,9 @@
         <p>
             Presented research paper titled "A Low Cost IoT-Based Monitoring for Aquaculture Using AI" at the 53<sup>rd</sup> Wireless World Research Forum (WWRF), held at BITS Pilani, Hyderabad Campus, from February 18 to 20, 2025.
         </p>
-        <img src="20250220_093503 (1).jpg" alt="Conference Certificate" width="50%" height="350px" class="centered-image"><img src="20250220_093621.jpg" alt="Conference Certificate" width="50%" height="350px" class="centered-image">
+        <img src="20250220_093503 (1).jpg" alt="Conference Certificate" width="50%" height="350px" class="centered-image">
+        <img src="20250220_093621.jpg" alt="Conference Certificate" width="50%" height="350px" class="centered-image">
         <img src="20250220_111328 (1).jpg" alt="Conference Certificate" width="100%" height="600px">
-
     </section>
     <section id="research" class="resume-section">
         <h2>Conferences Attended</h2>
@@ -563,7 +153,7 @@
     <section id="projects" class="resume-section">
         <h2>Projects</h2>
         <ul>
-            <li>Personal Web-Based Portfolia (THIS) </li>
+            <li>Personal Web-Based Portfolio (THIS)</li>
             <li>Clever Math Hub - API Service-Based Calculator</li>
             <li>Development of an Interactive Python-Based Terminal Gaming System for Enhanced User Engagement</li>
             <li>A Low Cost IoT Based Monitoring For Aquaculture Using AI</li>
@@ -627,7 +217,7 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class ="center">
+    <section id="contact">
         <h2>Contact Me</h2>
         <p>+91 8639975852 | <a href="mailto:mallarapuyaswanth05@gmail.com">mallarapuyaswanth05@gmail.com</a></p>
         <p>
@@ -643,14 +233,13 @@
     </section>
 
     <!-- Declaration Section -->
-    <section id="declaration">
-        <section id="declaration" class="resume-section">
-            <h2> Declaration</h2>
-            <p>
-            I hereby declare that all the information provided is true and is true and accurate to the best of my knowledge. I take full responsibility for the authenticity of the details mentioned here mentioned.
-            </p>
-            <p><strong>Regards,</strong><br>Mallarapu Yaswanth</p>
-        </section>
+    <section id="declaration" class="resume-section">
+        <h2>Declaration</h2>
+        <p>
+            I hereby declare that all the information provided is true and accurate to the best of my knowledge. I take full responsibility for the authenticity of the details mentioned here.
+        </p>
+        <p><strong>Regards,</strong><br>Mallarapu Yaswanth</p>
+    </section>
 
     <!-- Footer -->
     <footer>
@@ -660,126 +249,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script>
-        // Three.js 3D Background
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('three-canvas'), alpha: true });
-        renderer.setSize(window.innerWidth, window.innerHeight);
-
-        const geometry = new THREE.TorusGeometry(10, 3, 16, 100);
-        const material = new THREE.MeshBasicMaterial({ color: 0x08d9d6, wireframe: true });
-        const torus = new THREE.Mesh(geometry, material);
-        scene.add(torus);
-
-        camera.position.z = 30;
-
-        function animate() {
-            requestAnimationFrame(animate);
-            torus.rotation.x += 0.01;
-            torus.rotation.y += 0.01;
-            renderer.render(scene, camera);
-        }
-        animate();
-
-        window.addEventListener('resize', () => {
-            renderer.setSize(window.innerWidth, window.innerHeight);
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
-        });
-
-        // GSAP Animations
-        gsap.registerPlugin(ScrollTrigger);
-
-        // Hero Section Animation
-        gsap.from('#hero .hero-content', {
-            opacity: 0,
-            y: 100,
-            duration: 1.5,
-            ease: 'power3.out'
-        });
-
-        // Section Animations
-        document.querySelectorAll('section').forEach(section => {
-            gsap.from(section, {
-                opacity: 0,
-                y: 50,
-                duration: 1,
-                scrollTrigger: {
-                    trigger: section,
-                    start: 'top 80%',
-                    toggleActions: 'play none none none'
-                }
-            });
-        });
-
-        // Navigation Hover Animation
-        document.querySelectorAll('nav a').forEach(link => {
-            link.addEventListener('mouseenter', () => {
-                gsap.to(link, { scale: 1.1, duration: 0.3 });
-            });
-            link.addEventListener('mouseleave', () => {
-                gsap.to(link, { scale: 1, duration: 0.3 });
-            });
-        });
-
-        // Smooth Scrolling
-        document.querySelectorAll('nav a').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                targetElement.scrollIntoView({ behavior: 'smooth' });
-            });
-        });
-
-        // Contact Form Submission
-        document.getElementById('contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
-            const formMessage = document.getElementById('form-message');
-
-            formMessage.textContent = `Thank you, ${name}! Your message has been sent.`;
-            formMessage.style.color = '#08d9d6';
-
-            this.reset();
-
-            setTimeout(() => {
-                formMessage.textContent = '';
-            }, 3000);
-        });
-    </script>
-    <script>
-  document.addEventListener('contextmenu', function (e) {
-    e.preventDefault(); // Disables right-click
-    alert('Right-click is disabled on this page.');
-  });
-</script>
-<script>
-        document.addEventListener('DOMContentLoaded', () => {
-            document.addEventListener('copy', (event) => {
-                event.preventDefault(); // Prevent the copy action
-                alert('Copying is disabled on this webpage!');
-            });
-        });
-        // Hamburger Menu Toggle
-const hamburger = document.querySelector('.hamburger');
-const navUl = document.querySelector('nav ul');
-
-hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navUl.classList.toggle('active');
-});
-
-// Close menu when a nav link is clicked
-document.querySelectorAll('nav ul li a').forEach(link => {
-    link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navUl.classList.remove('active');
-    });
-});
-    </script>
+    <script src="scripts.js"></script>
 </body>
 </html>
