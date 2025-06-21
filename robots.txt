@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://myg-1107.github.io/Portfolio-Mallarapu-Yaswanth/sitemap.xml
