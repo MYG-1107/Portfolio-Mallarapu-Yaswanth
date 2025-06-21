@@ -124,11 +124,3 @@ document.addEventListener('DOMContentLoaded', () => {
         alert('Copying is disabled on this webpage!');
     });
 });
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-JV46HPMMHW"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-JV46HPMMHW');
-</script>
