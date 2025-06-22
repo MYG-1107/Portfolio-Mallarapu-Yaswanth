@@ -27,14 +27,6 @@ This is a personal portfolio website showcasing the skills, projects, internship
   - Smooth scrolling for navigation.
   - Client-side form handling.
 
-## Installation
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/MYG-4969/portfolio.git
-   ```
-2. Open `index.html` in a web browser to view the portfolio locally.
-3. Ensure an internet connection to load external libraries (Three.js, GSAP, Google Fonts).
-
 ## Usage
 - Navigate through sections using the top navigation bar.
 - Explore internship experiences, research publications, projects, and certifications.
@@ -58,6 +50,9 @@ For inquiries, reach out to:
 - Email: [mallarapuyaswanth05@gmail.com](mailto:mallarapuyaswanth05@gmail.com)
 - GitHub: [MYG-4969](https://github.com/MYG-4969)
 - LinkedIn: [my2004](https://linkedin.com/in/my2004)
+<<<<<<< HEAD
 
 # Portfolio-Mallarapu-Yaswanth
 A great place to showcase my projects.
+=======
+>>>>>>> ce0fd0f8aa6f5bec972c5d997ee8a6d31a8a2b1a
