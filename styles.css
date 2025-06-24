@@ -371,16 +371,16 @@ img {
     }
 
     nav ul li {
-        margin: 0.4rem 0;
+        margin: 0.5rem 0;
         text-align: center;
     }
 
     nav ul li a {
         display: flex;
-        padding: 0.5rem;
+        padding: 0.2rem;
     }
 
     .profile-logo {
-        display: center; /* Hide profile photo in mobile view */
+        display: flex; /* Hide profile photo in mobile view */
     }
 }
