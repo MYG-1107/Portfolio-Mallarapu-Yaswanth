@@ -347,7 +347,7 @@ img {
 }
 
 .hamburger.active span:nth-child(3) {
-    transform: rotate(-30deg) translate(7px, -7px);
+    transform: rotate(-45deg) translate(7px, -7px);
 }
 
 /* Responsive navigation styles */
@@ -371,13 +371,13 @@ img {
     }
 
     nav ul li {
-        margin: 1.5rem 0;
+        margin: 0.2rem 0;
         text-align: center;
     }
 
     nav ul li a {
         display: flex;
-        padding: 1.5rem;
+        padding: 0.2rem;
     }
 
     .profile-logo {
