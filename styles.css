@@ -326,7 +326,7 @@ img {
     display: none;
     flex-direction: column;
     cursor: pointer;
-    padding: 20px;
+    padding: 30px;
 }
 
 .hamburger span {
