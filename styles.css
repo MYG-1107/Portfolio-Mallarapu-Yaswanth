@@ -361,7 +361,7 @@ img {
         flex-direction: column;
         width: 100%;
         position: absolute;
-        top: 60px;
+        top: 20px;
         left: 0;
         background-color: #6B4226;
     }
