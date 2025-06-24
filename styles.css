@@ -381,6 +381,6 @@ img {
     }
 
     .profile-logo {
-        display: none; /* Hide profile photo in mobile view */
+        display: center; /* Hide profile photo in mobile view */
     }
 }
