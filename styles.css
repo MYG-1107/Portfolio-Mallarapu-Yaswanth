@@ -45,7 +45,7 @@ nav ul {
 }
 
 nav ul li a {
-    color: #fff;
+    color: #fbfaf9;
     text-decoration: none;
     font-family: 'Bebas Neue', sans-serif;
     font-size: 1.5rem;
@@ -54,7 +54,7 @@ nav ul li a {
 
 nav ul li a:hover {
     transform: translateY(-3px);
-    color: #090794;
+    color: #30da0e;
 }
 
 /* Hero Section */
@@ -146,7 +146,7 @@ section h2 {
 .resume-section h3 {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 2rem;
-    color: #0a025e;
+    color: #6B4226 ;
     margin-bottom: 1rem;
     text-shadow: 3px 3px 0 #f6f3f3;
 }
