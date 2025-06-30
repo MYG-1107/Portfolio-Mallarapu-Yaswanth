@@ -276,7 +276,7 @@ img {
     top: 15px;
     left: 15px;
     width: 60px;
-    height: 60px;
+    height: auto;
     border-radius: 50%;
     object-fit: cover;
     border: 2px solid #3498db;
@@ -330,8 +330,8 @@ img {
 }
 
 .hamburger span {
-    width: 25px;
-    height: 3px;
+    width: auto;
+    height: Auto;
     background-color: white;
     margin: 2px 0;
     transition: all 0.3s ease;
