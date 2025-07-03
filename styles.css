@@ -325,15 +325,17 @@ img {
 .hamburger {
     display: none;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
-    padding: 30px;
+    padding: 15px;
 }
 
 .hamburger span {
-    width: auto;
-    height: Auto;
+    width: 30px;
+    height: 3px;
     background-color: white;
-    margin: 2px 0;
+    margin: 3px 0;
     transition: all 0.3s ease;
 }
 
@@ -347,7 +349,7 @@ img {
 }
 
 .hamburger.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(7px, -7px);
+    transform: rotate(-45deg) translate(6px, -6px);
 }
 
 /* Responsive navigation styles */
@@ -360,11 +362,11 @@ img {
         display: none;
         flex-direction: column;
         width: 100%;
-        height: 2px;
         position: absolute;
-        top: 40px;
+        top: 60px;
         left: 0;
         background-color: #6B4226;
+        padding: 20px 0;
     }
 
     nav ul.active {
@@ -372,16 +374,18 @@ img {
     }
 
     nav ul li {
-        margin: 0.5rem 0;
+        margin: 0.8rem 0;
         text-align: center;
     }
 
     nav ul li a {
-        display: flex;
-        padding: 0.2rem;
+        display: block;
+        padding: 0.5rem;
+        color: white;
+        text-decoration: none;
     }
 
     .profile-logo {
-        display: flex; /* Hide profile photo in mobile view */
+        display: none; /* Hide profile photo in mobile view */
     }
 }
