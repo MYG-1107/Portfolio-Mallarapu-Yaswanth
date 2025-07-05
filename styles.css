@@ -342,7 +342,7 @@ img {
 @media (max-width: 768px) {
   /* Show hamburger on small screens */
   .hamburger {
-    display: center;
+    display: flex;
   }
 
   /* Hide menu links by default on mobile */
