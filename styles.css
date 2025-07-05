@@ -321,71 +321,59 @@ img {
         font-size: 1.2rem;
     }
 }
-/* Hamburger icon styles */
+/* Basic hamburger styling */
 .hamburger {
-    display: none;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    padding: 15px;
+  display: none; /* Hide hamburger by default */
+  flex-direction: column;
+  cursor: pointer;
+  width: 25px;
+  height: 20px;
+  justify-content: space-between;
 }
 
 .hamburger span {
-    width: 30px;
-    height: 3px;
-    background-color: white;
-    margin: 3px 0;
-    transition: all 0.3s ease;
+  display: block;
+  height: 3px;
+  background-color: #333;
+  border-radius: 2px;
 }
 
-/* Transform hamburger into X when active */
-.hamburger.active span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-}
+/* Responsive styles */
+@media (max-width: 768px) {
+  /* Show hamburger on small screens */
+  .hamburger {
+    display: flex;
+  }
 
-.hamburger.active span:nth-child(2) {
-    opacity: 0;
-}
+  /* Hide menu links by default on mobile */
+  nav ul {
+    display: none;
+    flex-direction: column;
+    padding-left: 0;
+    margin: 0;
+    background-color: #fff; /* optional background */
+    position: absolute; /* so it overlays */
+    top: 60px; /* adjust based on nav height */
+    right: 10px;
+    width: 200px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    border-radius: 4px;
+  }
 
-.hamburger.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(6px, -6px);
-}
+  nav ul.active {
+    display: flex; /* Show menu when active */
+  }
 
-/* Responsive navigation styles */
-@media screen and (max-width: 768px) {
-    .hamburger {
-        display: flex;
-    }
+  nav ul li {
+    margin: 10px 0;
+  }
 
-    nav ul {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        background-color: #6B4226;
-        padding: 20px 0;
-    }
-
-    nav ul.active {
-        display: flex;
-    }
-
-    nav ul li {
-        margin: 0.8rem 0;
-        text-align: center;
-    }
-
-    nav ul li a {
-        display: block;
-        padding: 0.5rem;
-        color: white;
-        text-decoration: none;
-    }
-
-    .profile-logo {
-        display: none; /* Hide profile photo in mobile view */
-    }
+  /* Optional: style links for mobile */
+  nav ul li a {
+    color: #333;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 8px 12px;
+    display: block;
+  }
 }
