@@ -333,7 +333,7 @@ img {
 
 .hamburger span {
   display: block;
-  height: 3px;
+  height: 2px;
   background-color: #333;
   border-radius: 2px;
 }
@@ -342,7 +342,7 @@ img {
 @media (max-width: 768px) {
   /* Show hamburger on small screens */
   .hamburger {
-    display: flex;
+    display: center;
   }
 
   /* Hide menu links by default on mobile */
