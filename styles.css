@@ -333,7 +333,7 @@ img {
 
 .hamburger span {
   display: block;
-  height: 2px;
+  height: 3px;
   background-color: #333;
   border-radius: 2px;
 }
