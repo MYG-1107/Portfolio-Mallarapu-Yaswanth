@@ -12,23 +12,46 @@ document.addEventListener('DOMContentLoaded', () => {
 
     console.log("Hamburger and nav menu found, attaching event listener");
 
+    // Toggle hamburger menu and handle aria attributes for accessibility
     hamburger.addEventListener('click', (event) => {
         event.stopPropagation();
-        navMenu.classList.toggle('active');
-        console.log("Hamburger clicked, active class toggled. Menu state:", navMenu.classList.contains('active'));
+        const isActive = navMenu.classList.toggle('active');
+        hamburger.classList.toggle('active');
+        hamburger.setAttribute('aria-expanded', isActive);
+        document.body.style.overflow = isActive ? 'hidden' : ''; // Prevent scrolling when menu is open
+        console.log("Hamburger clicked, active class toggled. Menu state:", isActive);
     });
 
+    // Close menu when clicking nav links
     document.querySelectorAll('nav ul li a').forEach(link => {
         link.addEventListener('click', () => {
             navMenu.classList.remove('active');
+            hamburger.classList.remove('active');
+            hamburger.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = ''; // Restore scrolling
             console.log("Nav link clicked, menu closed");
         });
     });
 
+    // Close menu when clicking outside
     document.addEventListener('click', (event) => {
         if (!navMenu.contains(event.target) && !hamburger.contains(event.target)) {
             navMenu.classList.remove('active');
+            hamburger.classList.remove('active');
+            hamburger.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
             console.log("Clicked outside, menu closed");
+        }
+    });
+
+    // Handle window resize for responsive menu behavior
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 768 && navMenu.classList.contains('active')) {
+            navMenu.classList.remove('active');
+            hamburger.classList.remove('active');
+            hamburger.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
+            console.log("Window resized above 768px, menu reset");
         }
     });
 
