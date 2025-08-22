@@ -310,11 +310,12 @@ section h2 {
     text-align: center;
     margin-top: 1rem;
     background: #f8f5f5;
-    color: #5666c5;
+    color: #000000;
 }
 
 #contact p a {
-    color: #4e04fb;
+    color: #020005;
+    text-decoration: none;
 }
 
 #contact form {
