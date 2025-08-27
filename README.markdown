@@ -1,7 +1,7 @@
 # Mallarapu Yaswanth Portfolio
 
 ## Overview
-This is a personal portfolio website showcasing the skills, projects, internships, education, and achievements of Mallarapu Yaswanth, a Computer Science and Engineering student specializing in AI & ML. The website is designed with a modern, neubrutalist aesthetic, featuring interactive elements and a clean, responsive layout.
+This is a <i>personal portfolio website</i> showcasing the skills, projects, internships, education, and achievements of Mallarapu Yaswanth, a Computer Science and Engineering student specializing in AI & ML. The website is designed with a modern, neubrutalist aesthetic, featuring interactive elements and a clean, responsive layout.
 
 ## Features
 - **Navigation Bar**: Sticky navigation with smooth scrolling to sections like Home, About, Internships, Research, Projects, Education, Skills, Certifications, Extracurricular, and Contact.
