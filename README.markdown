@@ -1,5 +1,5 @@
 # Mallarapu Yaswanth Portfolio
-Currently Working as Freelancer - Software Engineer at SITER Academy, Norway.
+Currently Working as Freelancer - <strong>Software Engineer</strong> at SITER Academy, Norway.
 ## Overview
 This is a <i>personal portfolio website</i> showcasing the skills, projects, internships, education, and achievements of <b>Mallarapu Yaswanth</b>, a <i>Computer Science and Engineering student specializing in AI & ML</i>. The website is designed with a modern, neubrutalist aesthetic, featuring interactive elements and a clean, responsive layout.
 
