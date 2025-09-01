@@ -33,9 +33,6 @@ This is a <i>personal portfolio website</i> showcasing the skills, projects, int
 - Use the contact form to send a message (client-side feedback only; no backend integration).
 - View certifications and research papers via linked Google Drive URLs.
 
-## Project Structure
-- `index.html`: Main HTML file containing the portfolio structure.
-
 
 ## Future Improvements
 - Add backend integration for the contact form to send emails.
