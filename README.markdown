@@ -46,8 +46,3 @@ For inquiries, reach out to:
 - GitHub: [MYG-4969](https://github.com/MYG-4969)
 - LinkedIn: [my2004](https://linkedin.com/in/my2004)
 <<<<<<< HEAD
-
-# Portfolio-Mallarapu-Yaswanth
-A great place to showcase my projects.
-=======
->>>>>>> ce0fd0f8aa6f5bec972c5d997ee8a6d31a8a2b1a
