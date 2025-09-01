@@ -37,7 +37,6 @@ This is a <i>personal portfolio website</i> showcasing the skills, projects, int
 - `index.html`: Main HTML file containing the portfolio structure.
 - `1699555731008.jpg`: Profile photo used in the navigation and hero section.
 - `20250220_093503 (1).jpg`, `20250220_093621.jpg`, `20250220_111328 (1).jpg`, `CERTIFICATE_of_Participation_WWRF53_MALLARAPU YASWANTH_page-0001.jpg`, `ICRA 2025 Satellite conference .jpg`: Images for research and conference sections.
-- Inline CSS and JavaScript for styling and interactivity.
 
 ## Future Improvements
 - Add backend integration for the contact form to send emails.
