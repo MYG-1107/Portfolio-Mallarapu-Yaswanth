@@ -35,7 +35,6 @@ This is a <i>personal portfolio website</i> showcasing the skills, projects, int
 
 ## Project Structure
 - `index.html`: Main HTML file containing the portfolio structure.
-- `1699555731008.jpg`: Profile photo used in the navigation and hero section.
 
 
 ## Future Improvements
