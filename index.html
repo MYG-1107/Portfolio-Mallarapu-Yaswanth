@@ -1,103 +1,41 @@
-<script type="text/javascript">
-        var gk_isXlsx = false;
-        var gk_xlsxFileLookup = {};
-        var gk_fileData = {};
-        function filledCell(cell) {
-          return cell !== '' && cell != null;
-        }
-        function loadFileData(filename) {
-        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
-            try {
-                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
-                var firstSheetName = workbook.SheetNames[0];
-                var worksheet = workbook.Sheets[firstSheetName];
-
-                // Convert sheet to JSON to filter blank rows
-                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
-                // Filter out blank rows (rows where all cells are empty, null, or undefined)
-                var filteredData = jsonData.filter(row => row.some(filledCell));
-
-                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
-                var headerRowIndex = filteredData.findIndex((row, index) =>
-                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
-                );
-                // Fallback
-                if (headerRowIndex === -1 || headerRowIndex > 25) {
-                  headerRowIndex = 0;
-                }
-
-                // Convert filtered JSON back to CSV
-                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
-                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
-                return csv;
-            } catch (e) {
-                console.error(e);
-                return "";
-            }
-        }
-        return gk_fileData[filename] || "";
-        }
-        const hamburger = document.querySelector('.hamburger');
-const navLinks = document.querySelector('nav ul');
-hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navLinks.classList.toggle('active');
-});
-        </script>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-MSVCCGVV');</script>
-<!-- End Google Tag Manager -->
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MSVCCGVV');</script>
+    <!-- End Google Tag Manager -->
+
     <link rel="icon" type="image/png" sizes="32x32" href="1699555731008.jpg" />
     <link rel="icon" type="image/png" sizes="16x16" href="1699555731008.jpg" />
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mallarapu Yaswanth - SITER Academy, Norge</title>
+    <title>Mallarapu Yaswanth - Software Engineer | SITER Academy, Norway</title>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@700&family=Merriweather&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Mallarapu Yaswanth",
-  "url": "https://myg-1107.github.io/Portfolio-Mallarapu-Yaswanth/",
-  "logo": "1699555731008.jpg"
-}
-</script>
-<script src="https://cdn.sheetjs.com/xlsx-latest/xlsx.full.min.js"></script>
+    <script src="https://cdn.sheetjs.com/xlsx-latest/xlsx.full.min.js"></script>
 </head>
-        <!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-JV46HPMMHW"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-JV46HPMMHW');
-</script>
+
 <body>
-        <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MSVCCGVV"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MSVCCGVV"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
     <!-- Navigation -->
     <nav>
         <div class="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
         <ul>
             <li><img src="1699555731008.jpg" alt="My Profile Photo" class="profile-logo"></li>
             <li><a href="#hero">Home</a></li>
             <li><a href="#about">About</a></li>
-            <li><a href="#internships">Internships</a></li>
+            <li><a href="#internships">Experience</a></li>
             <li><a href="#research">Research</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#education">Education</a></li>
@@ -117,7 +55,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <h3>Currently Working as a Software Engineer,<br> SITER Academy, Norway.</h3><br>
             <h3>Studing at</h3>
             <p>Vaagdevi College of Engineering</p>
-            <!--<h3>Currently Working as a Software Engineer,<br> SITER Academy, Norway [Remote]</h3><br>--><BR>
             <a href="#projects" class="btn">View My Work</a>
         </div>
     </section>
@@ -125,20 +62,43 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- About Section -->
     <section id="about">
         <h2>Overview</h2>
-        <p style="text-align: justify;"> <strong>I am a Talented Software Engineer, Administrative Developer at SITER Academy. Having Intelligence to do Smart Work Quickly, I can do any kind of Software Product Development and Provide the services to Existing Products with an High end Skills of Using AI. Looking for Career roles in IT(Software), Research, Cyber Security.</strong></p>
+        <p style="text-align: justify;"> 
+            <strong>I am a Talented Software Engineer, Administrative Developer at SITER Academy. Having Intelligence to do Smart Work Quickly, I can do any kind of Software Product Development and Provide the services to Existing Products with an High end Skills of Using AI. Looking for Career roles in IT(Software), Research, Cyber Security.</strong>
+        </p>
     </section>
 
-    <!-- Internship Experience -->
+    <!-- Professional Experience -->
     <section id="internships" class="resume-section">
-        <h2>Internship Experience</h2>
+        <h2>Professional Experience</h2>
+        
+        <!-- New from Resume -->
         <div>
-            <h3>Full Stack Web Developer</h3>
-            <h4>SITER Academy  | April 2025 - August 2025</h4>
+            <h3>Software Engineer</h3>
+            <h4>SITER Academy – Norway | September 2025 – Present</h4>
             <ul>
-                <li style="text-align: justify;">In this project, I am responsible for developing websites similar to IEEE for EJITE. My focus includes implementing ASP.NET Controller-based Web APIs, Minimal APIs, integrating Swashbuckle for API documentation, and developing interfaces using JavaScript. I also ensure seamless backend integration with MongoDB.</li>
-                </ul>
+                <li>Coordinate the daily operations tasks of SITER Academy, Email management, Web application Development and Maintenance cum server Management.</li>
+                <li>Developed and Managing/Maintenance of ejite.no (Journal Management System) using PHP, Apache HTTP Server, Tailwind CSS, AOS, jQuery, SweetAlert2 and Swiper.</li>
+                <li>Responsible for Managing Services and Updates of following Websites:
+                    <br>1. SITER Academy, Norway: www.siteracademy.no
+                    <br>2. EJITE: www.ejite.no
+                    <br>3. ICETBDT: www.icetbdt.no
+                    <br>4. ICAAIDT: www.icaaidt.no
+                    <br>5. SITER Academy, India: www.siteracademy.org
+                </li>
+            </ul>
         </div>
-            <div>
+
+        <div>
+            <h3>Full Stack Developer</h3>
+            <h4>SITER Academy, Norway | April 2025 – August 2025</h4>
+            <ul>
+                <li>In this project, I am responsible for developing websites similar to IEEE for EJITE. My focus includes implementing ASP.NET Controller-based Web APIs, Minimal APIs, integrating Swashbuckle for API documentation, and developing interfaces using JavaScript. I also ensure seamless backend integration with Mongo DB.</li>
+                <li>In this Project I had developed ejite.no website and manages server side instructions.</li>
+            </ul>
+        </div>
+
+        <!-- Existing Internships (unchanged) -->
+        <div>
             <h3>AWS Data Engineer</h3>
             <h4>Edu Skills Foundation | Oct 2024 - Dec 2024</h4>
             <ul>
@@ -149,16 +109,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <li><a href="https://drive.google.com/file/d/1njqnvz-Z9o2r0EdX7lMC6MCYHZ06Dzuj/view?usp=drive_link">View Certification</a></li>
             </ul>
         </div>
+
         <div>
             <h3>Juniper Networking Cloud</h3>
             <h4>Edu Skills Foundation | July 2024 - Sep 2024</h4>
             <ul>
                 <li style="text-align: justify;">Configured and managed virtualized network infrastructures, working with Juniper Cloud solutions like Junos OS, Mist, and Contrail Networking.</li>
                 <li style="text-align: justify;">Developed network automation skills using Python, Ansible, and REST APIs, while troubleshooting and optimizing cloud-based networking architectures.</li>
-                <!--<li style="text-align: justify;">Gained expertise in BGP, OSPF, MPLS, and VPNs, enhancing network performance and security.</li> -->
                 <li style="text-align: justify;"><a href="https://drive.google.com/file/d/1KPvf5Dg2kROEzwDcZ8zYW40vSL2bJVoJ/view?usp=drive_link">View Certification</a></li>
             </ul>
         </div>
+
         <div>
             <h3>Google Android Developer</h3>
             <h4>Edu Skills Foundation | April 2024 - June 2024</h4>
@@ -169,6 +130,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <li><a href="https://drive.google.com/file/d/1KS3Ax9EHBEdjmsXz2OomkEGia7EF1QTh/view?usp=drive_link">View Certification</a></li>
             </ul>
         </div>
+
         <div>
             <h3>Google AI-ML</h3>
             <h4>Edu Skills Foundation | Jan 2024 - Mar 2024</h4>
@@ -181,18 +143,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
     </section>
 
-    <!-- Research Paper Publications -->
+    <!-- Research -->
     <section id="research" class="resume-section">
         <h2>Research Paper Publications</h2>
-        <p style="text-align: justify;">
-            Presented research paper titled "A Low Cost IoT-Based Monitoring for Aquaculture Using AI" at the 53<sup>rd</sup> Wireless World Research Forum (WWRF), held at BITS Pilani, Hyderabad Campus, from February 18 to 20, 2025.
-        </p>
-        <!--<img src="20250220_093503 (1).jpg" alt="Conference Certificate" width="100%" height="100%">
-        <img src="20250220_093621.jpg" alt="Conference Certificate" width="100%" height="100%">
-        <img src="20250220_111328 (1).jpg" alt="Conference Certificate" width="100%" height="100%">-->
-    </section>
-    <section id="research" class="resume-section">
-        <h2>Conferences Attended</h2>
         <p style="text-align: justify;">
             Presented research paper titled "A Low Cost IoT-Based Monitoring for Aquaculture Using AI" at the 53<sup>rd</sup> Wireless World Research Forum (WWRF), held at BITS Pilani, Hyderabad Campus, from February 18 to 20, 2025.
         </p>
@@ -200,18 +153,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <img src="ICRA 2025 Satellite conference .jpg" alt="Conference Certificate" width="100%" height="auto">
     </section>
 
+    <!-- Projects -->
     <section id="projects" class="resume-section">
         <h2>Projects</h2>
         <ul>
-                <li style="text-align: justify;">
+            <li style="text-align: justify;">
                 EJITE
                 <div>
-                        <P style="font-size: 18px;">In this live project, I developed several key frontend components, including the <code>Header page</code>, <code>Topics page</code>, and the complete <code>About section</code>, which features details about the <code>publisher</code> and the <code>editorial board</code>—covering the <code>Editor-in-Chief</code>, <code>Editor</code>, and <code>Editorial Members</code>.
-<br>These sections were built using modern frontend technologies such as HTML, Tailwind CSS, and JavaScript, ensuring a responsive and visually cohesive user experience.</P>
-                    <!--<a href="https://github.com/MYG-1107/Portfolio-Mallarapu-Yaswanth" class="btn btn-primary">View Project</a> -->
+                    <p style="font-size: 18px;">In this live project, I developed several key frontend components, including the <code>Header page</code>, <code>Topics page</code>, and the complete <code>About section</code>, which features details about the <code>publisher</code> and the <code>editorial board</code>—covering the <code>Editor-in-Chief</code>, <code>Editor</code>, and <code>Editorial Members</code>.<br>These sections were built using modern frontend technologies such as HTML, Tailwind CSS, and JavaScript, ensuring a responsive and visually cohesive user experience.</p>
                     <a href="https://www.ejite.no" class="btn btn-secondary">View Live Web</a>
                 </div>
             </li>
+
             <li style="text-align: justify;">
                 Personal Web-Based Portfolio (THIS)
                 <div>
@@ -219,6 +172,48 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <a href="https://myg-1107.github.io/Portfolio-Mallarapu-Yaswanth/" class="btn btn-secondary">View Live Web</a>
                 </div>
             </li>
+
+            <!-- Projects Added from Resume -->
+            <li style="text-align: justify;">
+                Website for Listing WordPress Themes
+                <div>
+                    <p>This website is for the Business people to find the WordPress Themes for their Websites and Contents.</p>
+                    <a href="#" class="btn btn-secondary">View Live Web</a>
+                </div>
+            </li>
+
+            <li style="text-align: justify;">
+                Web-based Voice Call Application
+                <div>
+                    <p>I came across an idea of developing a website for talking to my friends and family using Website, it just requires internet to talk to the people around the world.</p>
+                    <a href="#" class="btn btn-secondary">View Live Web</a>
+                </div>
+            </li>
+
+            <li style="text-align: justify;">
+                Language Learning Application (English to Norwegian Translator)
+                <div>
+                    <p>I face a challenge in learning a Norwegian using English Translator and some other tools, I came across an idea of building this application to learn Norwegian by speaking English Conversations and text to speech and many more inside.</p>
+                    <a href="#" class="btn btn-secondary">View Live Web</a>
+                </div>
+            </li>
+
+            <li style="text-align: justify;">
+                Web-based Portfolio
+                <div>
+                    <p>This is my personal website for showing all of my experiences, Projects, Skills Certificates, Education, Contact page and all other active web sources related to “Mallarapu Yaswanth”.</p>
+                </div>
+            </li>
+
+            <li style="text-align: justify;">
+                Python Terminal Based Games
+                <div>
+                    <p>When, I was in first year of Undergraduate I came across an idea of developing a Terminal based games for students to understand the usage of Terminal Keys and Functions.</p>
+                    <a href="#" class="btn btn-secondary">View Live Web</a>
+                </div>
+            </li>
+
+            <!-- Your other projects -->
             <li style="text-align: justify;">
                 Clever Math Hub - API Service-Based Calculator
                 <div>
@@ -226,39 +221,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <a href="https://clever-math-2967uuljo-mallarapu-yaswanths-projects.vercel.app" class="btn btn-secondary">View Live Web</a>
                 </div>
             </li>
-            <li style="text-align: justify;">
-                Development of an Interactive Python-Based Terminal Gaming System for Enhanced User Engagement
-                <!--<div>
-                    <a href="#" class="btn btn-primary">View Project</a>
-                    <a href="#" class="btn btn-secondary">View Live Web</a>
-                </div>-->
-            </li>
-            <li style="text-align: justify;">
-                A Low Cost IoT Based Monitoring For Aquaculture Using AI - WWRF
-                <!--<div>
-                    <a href="#" class="btn btn-primary">View Project</a>
-                    <a href="#" class="btn btn-secondary">View Live Web</a>
-                </div>-->
-            </li>
+
             <li style="text-align: justify;">
                 To-Do List Application
                 <div>
                     <a href="https://github.com/MYG-1107/Python-To-Do-List" class="btn btn-primary">View Project</a>
-                    <!--<a href="#" class="btn btn-secondary">View Live Web</a>-->
                 </div>
             </li>
+
             <li style="text-align: justify;">
                 Digital Clock - Stopwatch - Timer
                 <div>
                     <a href="https://github.com/MYG-1107/Digital-Clock-Stopwatch-Timer" class="btn btn-primary">View Project</a>
-                    <!--<a href="#" class="btn btn-secondary">View Live Web</a>-->
                 </div>
             </li>
-
         </ul>
     </section>
 
-    <!-- Education Section -->
+    <!-- Education -->
     <section id="education" class="resume-section">
         <h2>Education</h2>
         <div>
@@ -278,11 +258,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
     </section>
 
-    <!-- Skills Section -->
+    <!-- Skills -->
     <section id="skills" class="resume-section">
         <h2>Skills</h2>
         <ul>
-            <li><strong>Programming Languages:</strong>HTML, CSS, JavaScript, Python, Java, PHP and  Node.js </li>
+            <li><strong>Programming Languages:</strong> HTML, CSS, JavaScript, Python, Java, PHP and Node.js</li>
             <li><strong>Libraries & Frameworks:</strong> React, Angular, NumPy, Pandas, Matplotlib, Scikit-learn, TensorFlow, Django and PyTorch.</li>
             <li><strong>Technologies & Tools:</strong> Git, Xam, GitHub, Tableau</li>
             <li><strong>Cloud Services:</strong> AWS (Elastic Beanstalk, S3 buckets, EC2)</li>
@@ -291,7 +271,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </ul>
     </section>
 
-    <!-- Certifications Section -->
+    <!-- Certifications -->
     <section id="certifications" class="resume-section">
         <h2>Certifications</h2>
         <ul>
@@ -304,7 +284,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </ul>
     </section>
 
-    <!-- Extracurricular Activities -->
+    <!-- Extracurricular -->
     <section id="extracurricular" class="resume-section">
         <h2>Extracurricular Activities</h2>
         <ul>
@@ -314,24 +294,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </ul>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Contact -->
     <section id="contact">
         <h2>Contact Me</h2>
         <p><a href="tel:+91 8639975852">+91 8639975852</a> | <a href="mailto:mallarapuyaswanth05@gmail.com">mallarapuyaswanth05@gmail.com</a></p>
         <p>
-            <a href="https://github.com/MYG-1107" target="_blank" rel="noopener noreferrer">GitHub</a> | 
-            <a href="https://linkedin.com/in/my2004" target="_blank" rel="noopener noreferrer">LinkedIn</a> | 
-            <a href="https://www.credly.com/users/mallarapu-yaswanth" target="_blank" rel="noopener noreferrer">Credly</a> | 
-            <a href="https://www.hackerrank.com/profile/mallarapuyaswan1" target="_blank" rel="noopener noreferrer">HackerRank</a> | 
-            <a href="https://www.duolingo.com/profile/MALLARAPUY1" target="_blank" rel="noopener noreferrer">Duolingo</a> | 
+            <a href="https://github.com/MYG-1107" target="_blank" rel="noopener noreferrer">GitHub</a> |
+            <a href="https://linkedin.com/in/my2004" target="_blank" rel="noopener noreferrer">LinkedIn</a> |
+            <a href="https://www.credly.com/users/mallarapu-yaswanth" target="_blank" rel="noopener noreferrer">Credly</a> |
+            <a href="https://www.hackerrank.com/profile/mallarapuyaswan1" target="_blank" rel="noopener noreferrer">HackerRank</a> |
+            <a href="https://www.duolingo.com/profile/MALLARAPUY1" target="_blank" rel="noopener noreferrer">Duolingo</a> |
             <a href="https://www.hackerearth.com/@MYG-1107/" target="_blank" rel="noopener noreferrer">HackerEarth</a> |
             <a href="https://www.mallarapuyaswanth.wordpress.com/" target="_blank" rel="noopener noreferrer">WordPress</a>
         </p>
         <p><a href="https://maps.app.goo.gl/2jpQPiRztzEWqfHz7" target="_blank" rel="noopener noreferrer">S/o Mallarapu Upender, Patharlapadu, Tirumalayapalem, Khammam, T.S 507183</a></p>
-        <div id="form-message"></div>
     </section>
 
-    <!-- Declaration Section -->
+    <!-- Declaration -->
     <section id="declaration" class="resume-section">
         <h2>Declaration</h2>
         <p style="text-align: justify;">
@@ -342,59 +321,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <!-- Footer -->
     <footer>
-    <!-- Copyright year is generated automatically using JavaScript -->
-    <p>
-        © <span id="currentYear"></span> Mallarapu Yaswanth. All Rights Reserved.
-    </p>
+        <p>© <span id="currentYear"></span> Mallarapu Yaswanth. All Rights Reserved.</p>
+        <p align="center">
+            <img src="https://komarev.com/ghpvc/?username=MYG-1107&label=Profile%20views&color=A45A3D&style=flat" alt="Profile views counter"/>
+        </p>
+    </footer>
 
-    <!-- Profile views counter -->
-    <p align="center">
-        <img 
-            src="https://komarev.com/ghpvc/?username=MYG-1107&label=Profile%20views&color=A45A3D&style=flat" 
-            alt="Profile views counter" 
-        />
-    </p>
-</footer>
+    <script>
+        // Hamburger Menu
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('nav ul');
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
 
-<!-- Script to automatically update the year -->
-<script>
-    document.getElementById("currentYear").textContent = new Date().getFullYear();
-</script>
-
+        // Current Year
+        document.getElementById("currentYear").textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
