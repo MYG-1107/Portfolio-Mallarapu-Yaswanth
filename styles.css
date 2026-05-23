@@ -90,7 +90,19 @@ nav ul li a:hover {
     height: 3px;
     background: #6B4226;
     border-radius: 2px;
-    transition: background-color 0.2s;
+    transition: background-color 0.2s, transform 0.2s, opacity 0.2s;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
 }
 
 /* Profile Logo */
@@ -120,19 +132,30 @@ nav ul li a:hover {
         margin-right: 1rem;
     }
 
+    .hamburger.active {
+        position: fixed;
+        top: 1.5rem;
+        right: 1.5rem;
+    }
+
     nav ul {
         display: none;
         flex-direction: column;
-        position: absolute;
-        top: 60px;
-        right: 1rem;
-        width: 200px;
+        position: fixed;
+        inset: 0;
+        width: 100%;
+        height: 100vh;
         background: #C4B6A6;
         border: 3px solid #A45A3D;
         border-radius: 8px;
         box-shadow: 4px 4px 0 #A45A3D;
-        padding: 1rem;
+        padding: 6rem 2rem 2rem;
         z-index: 1000;
+        gap: 1rem;
+        align-items: center;
+        justify-content: flex-start;
+        text-align: center;
+        overflow-y: auto;
     }
 
     nav ul.active {
@@ -140,7 +163,14 @@ nav ul li a:hover {
     }
 
     nav ul li {
-        margin: 0.5rem 0;
+        margin: 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    nav ul li.nav-logo {
+        margin-bottom: 0.5rem;
     }
 
     nav ul li a {
@@ -152,6 +182,8 @@ nav ul li a:hover {
         border-radius: 4px;
         box-shadow: 2px 2px 0 #A45A3D;
         display: block;
+        width: 100%;
+        max-width: 320px;
         transition: transform 0.2s, background-color 0.2s, color 0.2s;
     }
 
@@ -160,6 +192,12 @@ nav ul li a:hover {
         background: #D9BF77;
         color: #fff;
         box-shadow: 4px 4px 0 #A45A3D;
+    }
+
+    .profile-logo {
+        position: static;
+        width: 80px;
+        margin-bottom: 0.5rem;
     }
 }
 
@@ -171,14 +209,17 @@ nav ul li a:hover {
     }
 
     nav ul {
-        width: 180px;
-        top: 50px;
-        right: 0.5rem;
+        padding-top: 5rem;
+        gap: 0.75rem;
     }
 
     nav ul li a {
         font-size: 1rem;
         padding: 0.4rem 0.8rem;
+    }
+
+    .profile-logo {
+        width: 70px;
     }
 }
 

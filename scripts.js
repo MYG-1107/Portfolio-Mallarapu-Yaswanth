@@ -12,23 +12,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
     console.log("Hamburger and nav menu found, attaching event listener");
 
+    const setMenuState = (isOpen) => {
+        navMenu.classList.toggle('active', isOpen);
+        hamburger.classList.toggle('active', isOpen);
+        hamburger.setAttribute('aria-expanded', String(isOpen));
+        hamburger.setAttribute('aria-label', isOpen ? 'Close navigation' : 'Open navigation');
+        document.body.style.overflow = isOpen ? 'hidden' : ''; // Prevent scrolling when menu is open
+    };
+
     // Toggle hamburger menu and handle aria attributes for accessibility
     hamburger.addEventListener('click', (event) => {
         event.stopPropagation();
-        const isActive = navMenu.classList.toggle('active');
-        hamburger.classList.toggle('active');
-        hamburger.setAttribute('aria-expanded', isActive);
-        document.body.style.overflow = isActive ? 'hidden' : ''; // Prevent scrolling when menu is open
+        const isActive = !navMenu.classList.contains('active');
+        setMenuState(isActive);
         console.log("Hamburger clicked, active class toggled. Menu state:", isActive);
     });
 
     // Close menu when clicking nav links
     document.querySelectorAll('nav ul li a').forEach(link => {
         link.addEventListener('click', () => {
-            navMenu.classList.remove('active');
-            hamburger.classList.remove('active');
-            hamburger.setAttribute('aria-expanded', 'false');
-            document.body.style.overflow = ''; // Restore scrolling
+            setMenuState(false);
             console.log("Nav link clicked, menu closed");
         });
     });
@@ -36,10 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Close menu when clicking outside
     document.addEventListener('click', (event) => {
         if (!navMenu.contains(event.target) && !hamburger.contains(event.target)) {
-            navMenu.classList.remove('active');
-            hamburger.classList.remove('active');
-            hamburger.setAttribute('aria-expanded', 'false');
-            document.body.style.overflow = '';
+            setMenuState(false);
             console.log("Clicked outside, menu closed");
         }
     });
@@ -47,10 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Handle window resize for responsive menu behavior
     window.addEventListener('resize', () => {
         if (window.innerWidth > 768 && navMenu.classList.contains('active')) {
-            navMenu.classList.remove('active');
-            hamburger.classList.remove('active');
-            hamburger.setAttribute('aria-expanded', 'false');
-            document.body.style.overflow = '';
+            setMenuState(false);
             console.log("Window resized above 768px, menu reset");
         }
     });
