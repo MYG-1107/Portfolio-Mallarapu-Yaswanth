@@ -26,12 +26,12 @@
 
     <!-- Navigation -->
     <nav>
-        <div class="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-        <ul>
+        <button class="hamburger" type="button" aria-controls="nav-menu" aria-expanded="false" aria-label="Toggle navigation">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </button>
+        <ul id="nav-menu">
             <li><img src="1699555731008.jpg" alt="My Profile Photo" class="profile-logo"></li>
             <li><a href="#hero">Home</a></li>
             <li><a href="#about">About</a></li>
@@ -330,11 +330,31 @@
     <script>
         // Hamburger Menu
         const hamburger = document.querySelector('.hamburger');
-        const navLinks = document.querySelector('nav ul');
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            navLinks.classList.toggle('active');
-        });
+        const navLinks = document.querySelector('#nav-menu');
+
+        if (hamburger && navLinks) {
+            const closeMenu = () => {
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('active');
+                hamburger.setAttribute('aria-expanded', 'false');
+            };
+
+            hamburger.addEventListener('click', () => {
+                const isActive = navLinks.classList.toggle('active');
+                hamburger.classList.toggle('active', isActive);
+                hamburger.setAttribute('aria-expanded', String(isActive));
+            });
+
+            navLinks.querySelectorAll('a').forEach((link) => {
+                link.addEventListener('click', closeMenu);
+            });
+
+            document.addEventListener('click', (event) => {
+                if (!navLinks.contains(event.target) && !hamburger.contains(event.target)) {
+                    closeMenu();
+                }
+            });
+        }
 
         // Current Year
         document.getElementById("currentYear").textContent = new Date().getFullYear();

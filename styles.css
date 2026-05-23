@@ -75,6 +75,11 @@ nav ul li a:hover {
     z-index: 1001;
 }
 
+.hamburger:focus-visible {
+    outline: 3px solid #6B4226;
+    outline-offset: 3px;
+}
+
 .hamburger:hover {
     transform: translate(-2px, -2px);
     box-shadow: 6px 6px 0 #A45A3D;
@@ -103,6 +108,12 @@ nav ul li a:hover {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    nav {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
+
     .hamburger {
         display: flex;
         position: relative;
