@@ -43,6 +43,6 @@ This is a <i>personal portfolio website</i> showcasing the skills, projects, int
 ## Contact
 For inquiries, reach out to:
 - Email: [mallarapuyaswanth05@gmail.com](mailto:mallarapuyaswanth05@gmail.com)
-- GitHub: [MYG-4969](https://github.com/MYG-4969)
+- GitHub: [MYG-1107](https://github.com/MYG-1107)
 - LinkedIn: [my2004](https://linkedin.com/in/my2004)
 <<<<<<< HEAD
