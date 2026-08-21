@@ -2,23 +2,695 @@
 <html lang="en">
 <head>
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-JV46HPMMHW"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JV46HPMMHW"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-JV46HPMMHW');
+    </script>
 
-  gtag('config', 'G-JV46HPMMHW');
-</script>
-
-    <link rel="icon" type="image/png" sizes="32x32" href="1699555731008.jpg" />
-    <link rel="icon" type="image/png" sizes="16x16" href="1699555731008.jpg" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mallarapu Yaswanth - Machine Learning Engineer | Mealgrid, Norway</title>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@700&family=Merriweather&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://cdn.sheetjs.com/xlsx-latest/xlsx.full.min.js"></script>
+    <title>Mallarapu Yaswanth | Machine Learning & Software Engineer</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="1699555731008.jpg" />
+    <link rel="icon" type="image/png" sizes="16x16" href="1699555731008.jpg" />
+    
+    <!-- Google Fonts: Inter (Reflective of NAV Aksel and UDI typography) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Code+Pro:wght@500;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            /* Nordic Institutional Palette (Inspired by NAV Aksel & UDI.no) */
+            --color-primary: #00343D;          /* Deep Nordic Slate Teal */
+            --color-primary-hover: #002229;
+            --color-accent: #0067C5;           /* NAV Blue */
+            --color-accent-hover: #00509a;
+            --color-accent-light: #EBF4F9;     /* Soft Blue Tint */
+            --color-surface-subtle: #F4F6F8;   /* Public Service Neutral Canvas */
+            --color-surface-white: #FFFFFF;
+            --color-border: #D0DCE5;
+            --color-border-subtle: #E2E9F0;
+            --color-text-main: #23262A;
+            --color-text-muted: #4D5660;
+            --color-text-inverted: #FFFFFF;
+            --color-success: #06893A;
+            --color-success-bg: #E8F5E9;
+            --color-warning-bg: #FFF4E5;
+            --color-warning-text: #8A3B00;
+            
+            --font-family-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            --font-family-mono: 'Source Code Pro', monospace;
+            
+            --shadow-card: 0 2px 6px rgba(0, 34, 41, 0.06), 0 1px 3px rgba(0, 34, 41, 0.04);
+            --shadow-card-hover: 0 8px 18px rgba(0, 34, 41, 0.1), 0 2px 6px rgba(0, 34, 41, 0.06);
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --container-width: 1140px;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-family-sans);
+            background-color: var(--color-surface-subtle);
+            color: var(--color-text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Top Government/Agency Style Meta-Bar */
+        .top-meta-stripe {
+            background-color: var(--color-primary);
+            color: var(--color-text-inverted);
+            font-size: 0.84rem;
+            padding: 8px 0;
+            border-bottom: 3px solid var(--color-accent);
+        }
+
+        .top-meta-container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .meta-badge-wrapper {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #2ECC71;
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 0 2px rgba(46, 204, 113, 0.3);
+        }
+
+        /* Main Navigation (Aksel Style) */
+        header.site-header {
+            background-color: var(--color-surface-white);
+            border-bottom: 1px solid var(--color-border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+        }
+
+        .nav-container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+            height: 72px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand-link {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            text-decoration: none;
+            color: var(--color-primary);
+        }
+
+        .brand-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--color-border);
+        }
+
+        .brand-title-group h1 {
+            font-size: 1.15rem;
+            font-weight: 800;
+            letter-spacing: -0.01em;
+            line-height: 1.2;
+        }
+
+        .brand-title-group span {
+            font-size: 0.8rem;
+            color: var(--color-text-muted);
+            font-weight: 500;
+            display: block;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 4px;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--color-text-main);
+            font-size: 0.92rem;
+            font-weight: 600;
+            padding: 10px 14px;
+            border-radius: var(--radius-sm);
+            transition: background 0.15s ease, color 0.15s ease;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            background-color: var(--color-accent-light);
+            color: var(--color-accent);
+        }
+
+        .hamburger {
+            display: none;
+            background: none;
+            border: 1px solid var(--color-border);
+            padding: 8px 12px;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--color-primary);
+        }
+
+        /* Container Layout */
+        .page-container {
+            max-width: var(--container-width);
+            margin: 32px auto 64px auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Banner (UDI / NAV Informational Card Style) */
+        .hero-banner {
+            background: linear-gradient(135deg, #00343D 0%, #002229 100%);
+            border-radius: var(--radius-lg);
+            color: var(--color-text-inverted);
+            padding: 44px 40px;
+            margin-bottom: 40px;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            align-items: center;
+            gap: 32px;
+            box-shadow: var(--shadow-card);
+        }
+
+        .hero-content h2 {
+            font-size: 2.1rem;
+            font-weight: 800;
+            line-height: 1.25;
+            margin-bottom: 12px;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-role-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 18px;
+        }
+
+        .role-pill {
+            background: rgba(255, 255, 255, 0.14);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.82rem;
+            font-weight: 500;
+        }
+
+        .hero-content p {
+            font-size: 1.02rem;
+            line-height: 1.65;
+            color: #E2E8F0;
+            max-width: 680px;
+            margin-bottom: 24px;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .hero-avatar-box {
+            text-align: center;
+        }
+
+        .hero-avatar-box img {
+            width: 160px;
+            height: 160px;
+            border-radius: var(--radius-lg);
+            object-fit: cover;
+            border: 3px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+        }
+
+        /* Buttons (Norwegian Standard) */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-family: var(--font-family-sans);
+            font-size: 0.92rem;
+            font-weight: 600;
+            padding: 10px 20px;
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            transition: all 0.15s ease;
+            cursor: pointer;
+            border: 1px solid transparent;
+        }
+
+        .btn-primary {
+            background-color: var(--color-accent);
+            color: var(--color-text-inverted);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--color-accent-hover);
+        }
+
+        .btn-secondary {
+            background-color: rgba(255, 255, 255, 0.12);
+            color: var(--color-text-inverted);
+            border-color: rgba(255, 255, 255, 0.35);
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.22);
+        }
+
+        .btn-outline {
+            background-color: var(--color-surface-white);
+            color: var(--color-accent);
+            border-color: var(--color-border);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--color-accent-light);
+            border-color: var(--color-accent);
+        }
+
+        .btn-sm {
+            padding: 6px 12px;
+            font-size: 0.84rem;
+        }
+
+        /* Section Layouts */
+        .section-block {
+            margin-bottom: 48px;
+        }
+
+        .section-header-wrap {
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--color-border);
+            padding-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .section-title {
+            font-size: 1.45rem;
+            font-weight: 800;
+            color: var(--color-primary);
+            letter-spacing: -0.01em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-badge {
+            font-size: 0.78rem;
+            background: var(--color-accent-light);
+            color: var(--color-accent);
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-weight: 700;
+        }
+
+        /* Information / Task Cards (NAV & UDI Style) */
+        .card-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .norwegian-card {
+            background-color: var(--color-surface-white);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-md);
+            padding: 24px;
+            box-shadow: var(--shadow-card);
+            position: relative;
+            border-left: 4px solid var(--color-accent);
+            transition: box-shadow 0.2s ease, transform 0.2s ease;
+        }
+
+        .norwegian-card:hover {
+            box-shadow: var(--shadow-card-hover);
+        }
+
+        .card-header-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        .card-header-flex h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--color-primary);
+        }
+
+        .card-date-badge {
+            font-size: 0.82rem;
+            font-weight: 600;
+            background-color: var(--color-surface-subtle);
+            color: var(--color-text-muted);
+            border: 1px solid var(--color-border);
+            padding: 4px 10px;
+            border-radius: var(--radius-sm);
+        }
+
+        .card-subtitle {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--color-accent);
+            margin-bottom: 14px;
+        }
+
+        .card-bullet-list {
+            padding-left: 20px;
+            color: var(--color-text-main);
+            font-size: 0.94rem;
+        }
+
+        .card-bullet-list li {
+            margin-bottom: 8px;
+            line-height: 1.55;
+        }
+
+        /* Grid for Projects and Competencies */
+        .grid-two {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .project-card {
+            background-color: var(--color-surface-white);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-md);
+            padding: 22px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: var(--shadow-card);
+            transition: all 0.2s ease;
+        }
+
+        .project-card:hover {
+            border-color: var(--color-accent);
+            box-shadow: var(--shadow-card-hover);
+        }
+
+        .project-card h4 {
+            font-size: 1.08rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: 8px;
+        }
+
+        .project-card p {
+            font-size: 0.9rem;
+            color: var(--color-text-muted);
+            line-height: 1.55;
+            margin-bottom: 18px;
+        }
+
+        .project-card-footer {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: auto;
+        }
+
+        /* Skills Chips */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 16px;
+        }
+
+        .skill-category-box {
+            background: var(--color-surface-white);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-md);
+            padding: 18px;
+            box-shadow: var(--shadow-card);
+        }
+
+        .skill-category-box h4 {
+            font-size: 0.92rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            margin-bottom: 12px;
+            border-bottom: 1px solid var(--color-border-subtle);
+            padding-bottom: 6px;
+        }
+
+        .pill-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .pill {
+            background-color: var(--color-surface-subtle);
+            color: var(--color-text-main);
+            border: 1px solid var(--color-border);
+            font-size: 0.82rem;
+            font-weight: 500;
+            padding: 3px 9px;
+            border-radius: var(--radius-sm);
+        }
+
+        /* Institutional Data Table (Education) */
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+            background: var(--color-surface-white);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-card);
+        }
+
+        table.nordic-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.92rem;
+            text-align: left;
+        }
+
+        table.nordic-table th {
+            background-color: var(--color-surface-subtle);
+            color: var(--color-primary);
+            font-weight: 700;
+            padding: 14px 18px;
+            border-bottom: 2px solid var(--color-border);
+        }
+
+        table.nordic-table td {
+            padding: 14px 18px;
+            border-bottom: 1px solid var(--color-border-subtle);
+            color: var(--color-text-main);
+        }
+
+        table.nordic-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        table.nordic-table tr:hover td {
+            background-color: var(--color-accent-light);
+        }
+
+        .score-badge {
+            display: inline-block;
+            font-family: var(--font-family-mono);
+            font-weight: 600;
+            background-color: #E6F4EA;
+            color: #137333;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.86rem;
+        }
+
+        /* Honors & Certifications List */
+        .clean-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 12px;
+        }
+
+        .clean-list-item {
+            background: var(--color-surface-white);
+            border: 1px solid var(--color-border);
+            padding: 14px 16px;
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            box-shadow: var(--shadow-card);
+        }
+
+        .item-icon {
+            font-size: 1.1rem;
+            line-height: 1;
+            color: var(--color-accent);
+        }
+
+        .item-content strong {
+            display: block;
+            font-size: 0.92rem;
+            color: var(--color-primary);
+        }
+
+        .item-content span {
+            font-size: 0.82rem;
+            color: var(--color-text-muted);
+        }
+
+        /* Contact & Declaration Box */
+        .contact-card {
+            background: var(--color-surface-white);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            box-shadow: var(--shadow-card);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .contact-item {
+            background: var(--color-surface-subtle);
+            padding: 16px;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--color-border-subtle);
+        }
+
+        .contact-item span {
+            display: block;
+            font-size: 0.78rem;
+            color: var(--color-text-muted);
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .contact-item a, .contact-item p {
+            color: var(--color-accent);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.94rem;
+            word-break: break-all;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+
+        .social-link-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 24px;
+            padding-top: 20px;
+            border-top: 1px solid var(--color-border-subtle);
+        }
+
+        /* Footer */
+        footer.site-footer {
+            background-color: var(--color-primary);
+            color: var(--color-text-inverted);
+            padding: 36px 20px;
+            font-size: 0.88rem;
+            text-align: center;
+            border-top: 4px solid var(--color-accent);
+        }
+
+        footer.site-footer a {
+            color: #89C2F5;
+            text-decoration: none;
+        }
+
+        footer.site-footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 900px) {
+            .hero-banner {
+                grid-template-columns: 1fr;
+                text-align: left;
+                padding: 28px 24px;
+            }
+            .hero-avatar-box {
+                display: none;
+            }
+            .grid-two {
+                grid-template-columns: 1fr;
+            }
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 72px;
+                left: 0;
+                width: 100%;
+                background-color: var(--color-surface-white);
+                border-bottom: 2px solid var(--color-border);
+                padding: 16px;
+                box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            }
+            .nav-menu.active {
+                display: flex;
+            }
+            .hamburger {
+                display: block;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -26,326 +698,509 @@
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MSVCCGVV"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
-    <!-- Navigation -->
-    <nav>
-        <button class="hamburger" type="button" aria-controls="nav-menu" aria-expanded="false" aria-label="Toggle navigation">
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-        </button>
-        <ul id="nav-menu">
-            <li class="nav-logo"><img src="1699555731008.jpg" alt="My Profile Photo" class="profile-logo"></li>
-            <li><a href="#hero">Home</a></li>
-            <li><a href="#objective">Career Objective</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#certifications">Certifications</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-
-    <!-- Hero Section -->
-    <section id="hero">
-        <canvas id="three-canvas"></canvas>
-        <div class="hero-content">
-            <img src="1699555731008.jpg" alt="Styled image">
-            <h1>MALLARAPU YASWANTH</h1>
-            <h3>Machine Learning Engineer at Mealgrid, Norway</h3>
-            <h3>Software Engineer at SITER Academy, Norway</h3>
-            <h3>Certified Prompt Engineer | IIC ATAL Instructor</h3><br>
-            <p>B.Tech Computer Science & Engineering (AI&ML) | Vaagdevi College of Engineering</p>
-            <a href="#projects" class="btn">View My Work</a>
+    <!-- Top Agency Stripe -->
+    <div class="top-meta-stripe">
+        <div class="top-meta-container">
+            <div class="meta-badge-wrapper">
+                <span class="status-dot"></span>
+                <span>Production Portfolio & Technical Ledger</span>
+            </div>
+            <div>
+                <span>Mealgrid (Norway) • SITER Academy (Norway) • Warangal, India</span>
+            </div>
         </div>
-    </section>
+    </div>
 
-    <!-- Career Objective -->
-    <section id="objective" class="resume-section">
-        <h2>Career Objective</h2>
-        <p style="text-align: justify;">
-            I am a self-motivated, competent, and confident professional with 6+ months of experience as a Machine Learning Engineer. I can manage and handle multi-disciplinary projects, budgets, and teams to achieve assigned goals. I have an ability to build strong relationships with people and meet tight timelines. A resourceful problem solver with a proven ability to analyze complex challenges and implement efficient, data-driven solutions.
-        </p>
-    </section>
-
-    <!-- Professional Experience -->
-    <section id="experience" class="resume-section">
-        <h2>Professional Experience</h2>
-        
-        <!-- ML Engineer - Mealgrid -->
-        <div>
-            <h3>Machine Learning Engineer</h3>
-            <h4>Mealgrid – Norway (Remote) | March 2026 – Present</h4>
-            <ul>
-                <li>Designed and implemented a modular Machine Learning Advisory Intelligence microservice using Python and FastAPI, delivering production-grade solutions with sophisticated algorithms.</li>
-                <li>Built feature engineering pipelines to analyze historical pricing, promotions, availability, and purchasing patterns for data-driven insights.</li>
-                <li>Developed deterministic advisory algorithms producing contextual trend, stability, confidence, and buy-timing recommendations with measurable business impact.</li>
-                <li>Implemented explainable AI outputs for customer-facing recommendation transparency, enhancing trust and usability.</li>
-                <li>Created production-ready REST APIs integrated with Django applications through controlled API contracts and Swagger/Swashbuckle documentation.</li>
-                <li>Developed Docker and Docker Compose deployment configurations ensuring consistent cross-environment execution and simplified deployment pipelines.</li>
-                <li>Designed scalable project architecture following modular software engineering principles, enabling future extensibility and maintenance.</li>
-                <li>Collaborated with cross-functional development teams on API integration, interface specifications, deployment strategies, and technical documentation.</li>
-                <li>Authored comprehensive integration guides, deployment manuals, API specifications, and architectural documentation supporting controlled integration workflows.</li>
+    <!-- Main Navigation Bar -->
+    <header class="site-header">
+        <div class="nav-container">
+            <a href="#hero" class="brand-link">
+                <img src="1699555731008.jpg" alt="Mallarapu Yaswanth" class="brand-avatar">
+                <div class="brand-title-group">
+                    <h1>MALLARAPU YASWANTH</h1>
+                    <span>Machine Learning Engineer & Developer</span>
+                </div>
+            </a>
+            <button class="hamburger" type="button" aria-controls="nav-menu" aria-expanded="false" aria-label="Toggle navigation">
+                Menu ☰
+            </button>
+            <ul id="nav-menu" class="nav-menu">
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#honors">Honors & Awards</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#certifications">Certificates</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
+    </header>
 
-        <!-- Software Engineer - SITER Academy -->
-        <div>
-            <h3>Software Engineer</h3>
-            <h4>SITER Academy – Norway (Freelancer) | September 2025 – Present</h4>
-            <ul>
-                <li>Coordinate daily operations tasks including email management, web application development, maintenance, and server administration.</li>
-                <li>Developed and maintaining ejite.no (Journal Management System) using PHP, Apache HTTP Server, Tailwind CSS, AOS, jQuery, SweetAlert2, and Swiper.</li>
-                <li>Responsible for managing services and updates across multiple production websites:
-                    <br>• SITER Academy, Norway: www.siteracademy.no
-                    <br>• EJITE: www.ejite.no
-                    <br>• ICETBDT: www.icetbdt.no
-                    <br>• ICAAIDT: www.icaaidt.no
-                    <br>• SITER Academy, India: www.siteracademy.org
-                </li>
-                <li>Implemented performance optimization strategies and security best practices across all managed platforms.</li>
-            </ul>
-        </div>
-
-        <!-- Full Stack Developer - SITER Academy -->
-        <div>
-            <h3>Full Stack Developer</h3>
-            <h4>SITER Academy, Norway (Freelancer) | March 2025 – August 2025</h4>
-            <ul>
-                <li>Developed IEEE-style academic platform (EJITE) with comprehensive web development using modern tech stack.</li>
-                <li>Implemented ASP.NET Core Controller-based Web APIs and Minimal APIs with Swashbuckle for automated API documentation.</li>
-                <li>Built responsive user interfaces using JavaScript and modern frontend best practices.</li>
-                <li>Managed backend integration with MongoDB, ensuring data consistency and optimal performance.</li>
-                <li>Developed server-side infrastructure and deployment strategies for production environments.</li>
-            </ul>
-        </div>
-
-        
-    </section>
-
-    <!-- Projects -->
-    <section id="projects" class="resume-section">
-        <h2>Projects & Portfolio</h2>
-        <ul>
-            <li style="text-align: justify;">
-                <strong>AI Model for Indian Dance Classification using Microsoft Azure</strong>
-                <div>
-                    <p>A fully functional, production-ready computer vision model that accurately classifies Indian classical dance forms (Bharatanatyam, Kathak, Kathakali, Odissi, Manipuri, Kuchipudi, Mohiniyattam, Sattriya) from single images using Microsoft Azure Custom Vision. The system was built with zero/low-code tools and deployed as a real-time, interactive web application. This project demonstrates strong skills in cloud-based AI development, cultural heritage preservation, and modern web deployment.</p>
-                    <a href="https://github.com/MYG-1107/Indian-Dance-Classification-Using-Microsoft-Azure" class="btn btn-primary">View Project</a>
+    <main class="page-container">
+        <!-- Hero Section -->
+        <section id="hero" class="hero-banner">
+            <div class="hero-content">
+                <div class="hero-role-badges">
+                    <span class="role-pill">Machine Learning Engineer</span>
+                    <span class="role-pill">Full Stack Developer</span>
+                    <span class="role-pill">Certified Prompt Engineer</span>
+                    <span class="role-pill">IIC ATAL Instructor</span>
                 </div>
-            </li>
-
-            <li style="text-align: justify;">
-                <strong>EJITE - Journal Management System</strong>
-                <div>
-                    <p>A comprehensive academic journal platform similar to IEEE, featuring author manuscript submission, peer review workflows, and publication management. Built with ASP.NET Core backend APIs and JavaScript frontend, integrated with MongoDB. Currently live and serving academic community.</p>
-                    <a href="https://www.ejite.no" class="btn btn-secondary">View Live Web</a>
+                <h2>Mallarapu Yaswanth</h2>
+                <p>
+                    Self-motivated, competent, and confident Machine Learning Engineer with 6+ months of production experience delivering modular advisory microservices, deterministic algorithms, and full-stack platforms. Resourceful problem solver focused on high-reliability, data-driven software architecture.
+                </p>
+                <div class="hero-actions">
+                    <a href="#projects" class="btn btn-primary">View Projects →</a>
+                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                    <a href="mailto:mallarapuyaswanth05@gmail.com" class="btn btn-secondary">Email Directly</a>
                 </div>
-            </li>
+            </div>
+            <div class="hero-avatar-box">
+                <img src="1699555731008.jpg" alt="Mallarapu Yaswanth Photo">
+            </div>
+        </section>
 
-            <li style="text-align: justify;">
-                <strong>Website for Listing WordPress Themes</strong>
-                <div>
-                    <p>A business-focused platform for discovering and evaluating WordPress themes. Designed to help businesses find suitable themes for their websites and content needs.</p>
-                    <a href="https://themeatlas.onrender.com/" class="btn btn-secondary">View Live Web</a>
+        <!-- Professional Experience -->
+        <section id="experience" class="section-block">
+            <div class="section-header-wrap">
+                <h3 class="section-title">Professional Experience</h3>
+                <span class="section-badge">3 Roles Documented</span>
+            </div>
+            <div class="card-stack">
+                <!-- Role 1 -->
+                <article class="norwegian-card">
+                    <div class="card-header-flex">
+                        <h3>Machine Learning Engineer</h3>
+                        <span class="card-date-badge">March 2026 – Present</span>
+                    </div>
+                    <div class="card-subtitle">Mealgrid – Norway (Remote)</div>
+                    <ul class="card-bullet-list">
+                        <li>Designed and implemented a modular Machine Learning Advisory Intelligence microservice using Python and FastAPI.</li>
+                        <li>Built feature engineering pipelines to analyze historical pricing, promotions, availability, and purchasing patterns for high-impact decision support.</li>
+                        <li>Developed deterministic advisory algorithms producing contextual trend, stability, confidence, and buy-timing recommendations.</li>
+                        <li>Implemented Explainable AI (XAI) outputs ensuring recommendation transparency and user trust.</li>
+                        <li>Created production REST APIs seamlessly integrated with Django through controlled API contracts and automated Swagger/Swashbuckle specifications.</li>
+                        <li>Engineered Docker and Docker Compose deployment workflows ensuring continuous, reproducible multi-environment delivery.</li>
+                    </ul>
+                </article>
+
+                <!-- Role 2 -->
+                <article class="norwegian-card">
+                    <div class="card-header-flex">
+                        <h3>Software Engineer</h3>
+                        <span class="card-date-badge">September 2025 – Present</span>
+                    </div>
+                    <div class="card-subtitle">SITER Academy – Norway (Freelancer)</div>
+                    <ul class="card-bullet-list">
+                        <li>Coordinate daily operations tasks: email administration, web application development, maintenance, and multi-server administration.</li>
+                        <li>Maintain and enhance <strong>ejite.no</strong> (Journal Management System) utilizing PHP, Apache HTTP Server, Tailwind CSS, AOS, jQuery, SweetAlert2, and Swiper.</li>
+                        <li>Manage production uptime, service updates, and deployments across primary domains:
+                            <br>• SITER Academy, Norway (<code>www.siteracademy.no</code>)
+                            <br>• EJITE Academic Journal (<code>www.ejite.no</code>)
+                            <br>• ICETBDT Conference (<code>www.icetbdt.no</code>)
+                            <br>• ICAAIDT Conference (<code>www.icaaidt.no</code>)
+                            <br>• SITER Academy, India (<code>www.siteracademy.org</code>)
+                        </li>
+                    </ul>
+                </article>
+
+                <!-- Role 3 -->
+                <article class="norwegian-card">
+                    <div class="card-header-flex">
+                        <h3>Full Stack Developer</h3>
+                        <span class="card-date-badge">March 2025 – August 2025</span>
+                    </div>
+                    <div class="card-subtitle">SITER Academy – Norway (Freelancer)</div>
+                    <ul class="card-bullet-list">
+                        <li>Engineered IEEE-style academic publishing system for EJITE from foundational architecture to production.</li>
+                        <li>Developed ASP.NET Core Controller-based Web APIs and Minimal APIs documented through automated Swashbuckle Swagger.</li>
+                        <li>Architected responsive frontend interfaces in modern JavaScript and handled MongoDB backend integrations.</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <!-- Honors & Awards -->
+        <section id="honors" class="section-block">
+            <div class="section-header-wrap">
+                <h3 class="section-title">Honors & Awards</h3>
+                <span class="section-badge">Academic & Industry</span>
+            </div>
+            <div class="clean-list">
+                <div class="clean-list-item">
+                    <div class="item-icon">🏅</div>
+                    <div class="item-content">
+                        <strong>Certificate of Appreciation — SITER Academy, Norge</strong>
+                        <span>Awarded for successfully organizing the 1st ICETBDT Conference at Goa, India (24th July 2026).</span>
+                    </div>
                 </div>
-            </li>
-
-            <li style="text-align: justify;">
-                <strong>Web-based Voice Call Application</strong>
-                <div>
-                    <p>A real-time peer-to-peer voice communication platform enabling users to connect and communicate globally using only internet connection. Overcame initial ISP-limitation by integrating Metered API for cross-ISP connectivity.</p>
-                    <a href="https://voice-chat-7ryk.onrender.com/" class="btn btn-secondary">View Live Web</a>
+                <div class="clean-list-item">
+                    <div class="item-icon">🏆</div>
+                    <div class="item-content">
+                        <strong>Best Paper Award — ICETETAMS 2026</strong>
+                        <span>Recognized with Best Paper Award at ICETETAMS 2026 Conference (10th April 2026).</span>
+                    </div>
                 </div>
-            </li>
+            </div>
+        </section>
 
-            <li style="text-align: justify;">
-                <strong>Language Learning Application (English to Norwegian Translator)</strong>
-                <div>
-                    <p>An interactive learning tool designed to help users master Norwegian through English conversation translation, text-to-speech capabilities, and immersive learning features. Built to address personal language learning challenges.</p>
-                    <a href="https://myg-1107.github.io/Learn-Norwegian/" class="btn btn-secondary">View Live Web</a>
+        <!-- Projects & Portfolio -->
+        <section id="projects" class="section-block">
+            <div class="section-header-wrap">
+                <h3 class="section-title">Projects & Portfolio</h3>
+                <span class="section-badge">Applied Engineering</span>
+            </div>
+            <div class="grid-two">
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <div>
+                        <h4>AI Model for Indian Dance Classification</h4>
+                        <p>Production computer vision model classifying 8 classical Indian dance forms from single images using Microsoft Azure Custom Vision. Deployed as a real-time web application.</p>
+                    </div>
+                    <div class="project-card-footer">
+                        <a href="https://github.com/MYG-1107/Indian-Dance-Classification-Using-Microsoft-Azure" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">GitHub Repo</a>
+                    </div>
                 </div>
-            </li>
 
-            <li style="text-align: justify;">
-                <strong>Personal Web-Based Portfolio (THIS)</strong>
-                <div>
-                    <p>A comprehensive showcase of professional experiences, projects, skills, certifications, and education. Serves as a central hub for all active web presence and professional information.</p>
-                    <a href="https://github.com/MYG-1107/Portfolio-Mallarapu-Yaswanth" class="btn btn-primary">View Project</a> -
-                    <a href="https://myg-1107.github.io/Portfolio-Mallarapu-Yaswanth/" class="btn btn-secondary">View Live Web</a>
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <div>
+                        <h4>EJITE - Journal Management System</h4>
+                        <p>Comprehensive IEEE-style academic publishing system featuring manuscript tracking, peer-review workflow management, and MongoDB backend. Serving live academic communities.</p>
+                    </div>
+                    <div class="project-card-footer">
+                        <a href="https://www.ejite.no" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">View Live Portal ↗</a>
+                    </div>
                 </div>
-            </li>
 
-            <li style="text-align: justify;">
-                <strong>Clever Math Hub - API Service-Based Calculator</strong>
-                <div>
-                    <p>A modern calculator application leveraging microservice architecture with RESTful APIs, demonstrating advanced frontend-backend integration and API design principles.</p>
-                    <a href="https://github.com/MYG-1107/Calculator-api-services" class="btn btn-primary">View Project</a> -
-                    <a href="https://clever-math-2967uuljo-mallarapu-yaswanths-projects.vercel.app" class="btn btn-secondary">View Live Web</a>
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <div>
+                        <h4>Language Learning Application (English to Norwegian)</h4>
+                        <p>Interactive translator and language practice application built with speech recognition, text-to-speech, and structured conversation modules for mastering Norwegian.</p>
+                    </div>
+                    <div class="project-card-footer">
+                        <a href="https://myg-1107.github.io/Learn-Norwegian/" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">View Live App ↗</a>
+                    </div>
                 </div>
-            </li>
 
-            <li style="text-align: justify;">
-                <strong>Python Terminal Based Games</strong>
-                <div>
-                    <p>A suite of terminal-based games developed to help students understand terminal operations and command-line programming. Covers essential operations: Save, Update, Load, Create, Delete, Retrieve, and shortcut commands for efficient terminal usage.</p>
-                    <a href="https://github.com/MYG-1107/Python-Terminal-Based-Games" class="btn btn-primary">View Project</a> -
-                    <a href="https://myg-1107.github.io/Python-Terminal-Based-Games/" class="btn btn-secondary">View Documentation</a>
+                <!-- Project 4 -->
+                <div class="project-card">
+                    <div>
+                        <h4>Web-based Voice Call Application</h4>
+                        <p>Real-time peer-to-peer browser voice communication platform. Engineered cross-ISP global connectivity utilizing Metered WebRTC API on Render infrastructure.</p>
+                    </div>
+                    <div class="project-card-footer">
+                        <a href="https://voice-chat-7ryk.onrender.com/" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">View Live Web ↗</a>
+                    </div>
                 </div>
-            </li>
 
-            <li style="text-align: justify;">
-                <strong>To-Do List Application</strong>
-                <div>
-                    <a href="https://github.com/MYG-1107/Python-To-Do-List" class="btn btn-primary">View Project</a>
+                <!-- Project 5 -->
+                <div class="project-card">
+                    <div>
+                        <h4>Clever Math Hub - Microservice Calculator</h4>
+                        <p>Calculative microservice architecture utilizing REST APIs demonstrating clean separation of concerns and robust client-side API consumption.</p>
+                    </div>
+                    <div class="project-card-footer">
+                        <a href="https://github.com/MYG-1107/Calculator-api-services" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">Repository</a>
+                        <a href="https://clever-math-2967uuljo-mallarapu-yaswanths-projects.vercel.app" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">Live Service ↗</a>
+                    </div>
                 </div>
-            </li>
 
-            <li style="text-align: justify;">
-                <strong>Digital Clock - Stopwatch - Timer</strong>
-                <div>
-                    <a href="https://github.com/MYG-1107/Digital-Clock-Stopwatch-Timer" class="btn btn-primary">View Project</a>
+                <!-- Project 6 -->
+                <div class="project-card">
+                    <div>
+                        <h4>Python Terminal-Based Educational Games</h4>
+                        <p>Suite of CLI applications designed to train students on terminal command primitives (CRUD, memory management, buffer loads, and operational shortcuts).</p>
+                    </div>
+                    <div class="project-card-footer">
+                        <a href="https://github.com/MYG-1107/Python-Terminal-Based-Games" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">Repository</a>
+                        <a href="https://myg-1107.github.io/Python-Terminal-Based-Games/" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">Documentation ↗</a>
+                    </div>
                 </div>
-            </li>
-        </ul>
-    </section>
+            </div>
+        </section>
 
-    <!-- Education -->
-    <section id="education" class="resume-section">
-        <h2>Education</h2>
-        <div>
-            <h3>Bachelor of Technology in Computer Science and Engineering (AI & ML)</h3>
-            <h4>Vaagdevi College of Engineering, Warangal | August 2023 - 2027</h4>
-            <p><strong>CGPA: 8.9</strong></p>
-        </div>
-        <div>
-            <h3>Post Graduate Diploma in Computer Applications (PGDCA)</h3>
-            <h4>CSCE Computer Education | 2021</h4>
-            <p><strong>Score: 818 / 900</strong></p>
-        </div>
-        <div>
-            <h3>Intermediate (10+2) in MPC</h3>
-            <h4>MJPTBCWRJC Station Ghanpur Boys, TS | January 2023</h4>
-            <p><strong>Marks: 892 / 1000</strong></p>
-        </div>
-        <div>
-            <h3>SSC (10th Class)</h3>
-            <h4>MJPTBCWR School Kukatpally Boys, TS | 2021</h4>
-            <p><strong>CGPA: 10.0</strong></p>
-        </div>
-    </section>
+        <!-- Professional Education -->
+        <section id="education" class="section-block">
+            <div class="section-header-wrap">
+                <h3 class="section-title">Education Ledger</h3>
+                <span class="section-badge">Verified Credentials</span>
+            </div>
+            <div class="table-responsive">
+                <table class="nordic-table">
+                    <thead>
+                        <tr>
+                            <th>Institute</th>
+                            <th>Qualification / Field</th>
+                            <th>Year</th>
+                            <th>Grade / Score</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Vaagdevi College of Engineering</strong></td>
+                            <td>B.Tech in Computer Science & Engineering (AI & ML)</td>
+                            <td>2023 – 2027</td>
+                            <td><span class="score-badge">8.9 CGPA</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>CSCE Computer Education</strong></td>
+                            <td>PGDCA (Post Graduate Diploma in Computer Applications)</td>
+                            <td>2021</td>
+                            <td><span class="score-badge">818 / 900</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>MJPTBCWRJC Station Ghanpur (Boys)</strong></td>
+                            <td>Intermediate (10+2) MPC</td>
+                            <td>2023</td>
+                            <td><span class="score-badge">892 / 1000</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>MJPTBCWR School Kukatpally (Boys)</strong></td>
+                            <td>SSC (10th Class)</td>
+                            <td>2021</td>
+                            <td><span class="score-badge">10.0 CGPA</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
 
-    <!-- Skills -->
-    <section id="skills" class="resume-section">
-        <h2>Core Competencies & Technical Skills</h2>
-        <ul>
-            <li><strong>Machine Learning & AI:</strong> Feature Engineering, Predictive Analytics, Computer Vision (Image Classification), Low-Code AI, Explainable AI (XAI), Deterministic Advisory Algorithms, Time-Series Analysis</li>
-            <li><strong>AI Ecosystem & GenAI Tools:</strong> Grok, Anthropic (Claude), OpenAI (ChatGPT, Codex), Gemini, AI Prompt Engineering, GitHub Copilot</li>
-            <li><strong>Programming Languages:</strong> Python, C# (ASP.NET Core), Java, PHP, JavaScript, TypeScript, C, SQL</li>
-            <li><strong>Frameworks & Libraries:</strong> FastAPI, Django, Streamlit, NumPy, Pandas, Scikit-learn, TensorFlow, PyTorch, ReactJS, Next.js, Node.js, AngularJS, jQuery, Pillow</li>
-            <li><strong>Cloud, MLOps & DevOps:</strong> Microsoft Azure (Custom Vision, AI Services), CI/CD Pipelines, Docker, Docker Compose, Streamlit Cloud, Render, Server Management</li>
-            <li><strong>Databases & Technologies:</strong> MongoDB, IndexedDB, SQL, Apache HTTP Server, HTML5/CSS3, Tailwind CSS, RESTful API Design (Swagger/Swashbuckle), Git, LaTeX</li>
-            <li><strong>Specialized Skills:</strong> Prompt Engineering, API Integration, Microservice Architecture, Production Deployment, Technical Documentation, Cross-functional Collaboration</li>
-        </ul>
-    </section>
+        <!-- Core Competencies & Skills -->
+        <section id="skills" class="section-block">
+            <div class="section-header-wrap">
+                <h3 class="section-title">Technical Competencies</h3>
+                <span class="section-badge">Standard Classification</span>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category-box">
+                    <h4>Machine Learning & AI</h4>
+                    <div class="pill-container">
+                        <span class="pill">Feature Engineering</span>
+                        <span class="pill">Predictive Analytics</span>
+                        <span class="pill">Computer Vision</span>
+                        <span class="pill">Explainable AI (XAI)</span>
+                        <span class="pill">Advisory Algorithms</span>
+                        <span class="pill">Time-Series Analysis</span>
+                    </div>
+                </div>
+                <div class="skill-category-box">
+                    <h4>GenAI & Prompt Engineering</h4>
+                    <div class="pill-container">
+                        <span class="pill">Prompt Engineering & Looping</span>
+                        <span class="pill">Grok</span>
+                        <span class="pill">Claude (Anthropic)</span>
+                        <span class="pill">ChatGPT / Codex</span>
+                        <span class="pill">Gemini</span>
+                        <span class="pill">GitHub Copilot</span>
+                    </div>
+                </div>
+                <div class="skill-category-box">
+                    <h4>Programming Languages</h4>
+                    <div class="pill-container">
+                        <span class="pill">Python</span>
+                        <span class="pill">C# (ASP.NET Core)</span>
+                        <span class="pill">Java</span>
+                        <span class="pill">PHP</span>
+                        <span class="pill">JavaScript (ES6+)</span>
+                        <span class="pill">TypeScript</span>
+                        <span class="pill">C</span>
+                        <span class="pill">SQL</span>
+                    </div>
+                </div>
+                <div class="skill-category-box">
+                    <h4>Frameworks & Libraries</h4>
+                    <div class="pill-container">
+                        <span class="pill">FastAPI</span>
+                        <span class="pill">Django</span>
+                        <span class="pill">Streamlit</span>
+                        <span class="pill">NumPy</span>
+                        <span class="pill">Pandas</span>
+                        <span class="pill">Scikit-learn</span>
+                        <span class="pill">ReactJS</span>
+                        <span class="pill">Next.js</span>
+                        <span class="pill">Node.js</span>
+                    </div>
+                </div>
+                <div class="skill-category-box">
+                    <h4>Cloud, MLOps & Infrastructure</h4>
+                    <div class="pill-container">
+                        <span class="pill">Microsoft Azure AI</span>
+                        <span class="pill">Docker & Compose</span>
+                        <span class="pill">CI/CD Pipelines</span>
+                        <span class="pill">Streamlit Cloud</span>
+                        <span class="pill">Render</span>
+                        <span class="pill">Apache HTTP Server</span>
+                    </div>
+                </div>
+                <div class="skill-category-box">
+                    <h4>Databases & Specialized Tools</h4>
+                    <div class="pill-container">
+                        <span class="pill">MongoDB</span>
+                        <span class="pill">IndexedDB</span>
+                        <span class="pill">Tailwind CSS</span>
+                        <span class="pill">REST / OpenAPI (Swagger)</span>
+                        <span class="pill">Git & GitHub</span>
+                        <span class="pill">LaTeX</span>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <!-- Certifications -->
-    <section id="certifications" class="resume-section">
-        <h2>Certifications & Achievements</h2>
-        <ul>
-            <li><strong>AWS Academy Graduate</strong> - AWS Academy Cloud Foundations, Amazon Web Services Training and Certification | Issued: January 31, 2025</li>
-            <li><strong>Software Engineer</strong> - HackerRank | Issued: November 21, 2024</li>
-            <li><strong>Celonis Foundations</strong> - Celonis | Issued: October 4, 2024</li>
-            <li><strong>Getting Started with Artificial Intelligence</strong> - IBM SkillsBuild | Issued: September 28, 2024</li>
-            <li><strong>Getting Started with Enterprise Data Science</strong> - IBM | Issued: February 28, 2024</li>
-            <li><strong>Python (Basics)</strong> - HackerRank | Issued: February 27, 2024</li>
-            <li><strong>Certified Prompt Engineer</strong> - Advanced AI Prompt Engineering & LLM Applications</li>
-            <li><strong>IIC ATAL Instructor</strong> - Instructor for Entrepreneurship and Innovation</li>
-        </ul>
-    </section>
+        <!-- Certifications -->
+        <section id="certifications" class="section-block">
+            <div class="section-header-wrap">
+                <h3 class="section-title">Certifications & Accreditations</h3>
+                <span class="section-badge">Verified</span>
+            </div>
+            <div class="clean-list">
+                <div class="clean-list-item">
+                    <div class="item-icon">📜</div>
+                    <div class="item-content">
+                        <strong>AWS Academy Graduate — Cloud Foundations</strong>
+                        <span>Amazon Web Services Training & Certification | Issued: Jan 31, 2025</span>
+                    </div>
+                </div>
+                <div class="clean-list-item">
+                    <div class="item-icon">📜</div>
+                    <div class="item-content">
+                        <strong>Certified Prompt Engineer</strong>
+                        <span>Advanced LLM Architectures, Optimization & Prompt Looping</span>
+                    </div>
+                </div>
+                <div class="clean-list-item">
+                    <div class="item-icon">📜</div>
+                    <div class="item-content">
+                        <strong>Software Engineer Skill Certification</strong>
+                        <span>HackerRank | Issued: Nov 21, 2024</span>
+                    </div>
+                </div>
+                <div class="clean-list-item">
+                    <div class="item-icon">📜</div>
+                    <div class="item-content">
+                        <strong>Celonis Foundations</strong>
+                        <span>Celonis Process Mining | Issued: Oct 4, 2024</span>
+                    </div>
+                </div>
+                <div class="clean-list-item">
+                    <div class="item-icon">📜</div>
+                    <div class="item-content">
+                        <strong>Getting Started with Artificial Intelligence</strong>
+                        <span>IBM SkillsBuild | Issued: Sep 28, 2024</span>
+                    </div>
+                </div>
+                <div class="clean-list-item">
+                    <div class="item-icon">📜</div>
+                    <div class="item-content">
+                        <strong>Getting Started with Enterprise Data Science</strong>
+                        <span>IBM | Issued: Feb 28, 2024</span>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <!-- Personal Details -->
-    <section id="personal" class="resume-section">
-        <h2>Personal Details</h2>
-        <ul>
-            <li><strong>Date of Birth:</strong> 11th July 2005</li>
-            <li><strong>Languages:</strong> Fluent in English and Telugu (Writing, Speaking, Reading)</li>
-            <li><strong>Marital Status:</strong> Unmarried</li>
-            <li><strong>Residence:</strong> India / Remote (Available for Remote Work)</li>
-        </ul>
-    </section>
+        <!-- Contact & Direct Directory -->
+        <section id="contact" class="section-block">
+            <div class="contact-card">
+                <h3 class="section-title" style="margin-bottom: 8px;">Contact & Professional Ledger</h3>
+                <p style="color: var(--color-text-muted); font-size: 0.94rem;">
+                    Available for machine learning engineering, enterprise web integration, and international research collaborations.
+                </p>
+                <div class="contact-grid">
+                    <div class="contact-item">
+                        <span>Direct Telephone</span>
+                        <a href="tel:+918639975852">+91 8639975852</a>
+                    </div>
+                    <div class="contact-item">
+                        <span>Primary Email</span>
+                        <a href="mailto:mallarapuyaswanth05@gmail.com">mallarapuyaswanth05@gmail.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <span>Jurisdiction / Location</span>
+                        <p>Telangana, India (Available Globally for Remote)</p>
+                    </div>
+                    <div class="contact-item">
+                        <span>Languages</span>
+                        <p>English, Telugu (Fluent R/W/S)</p>
+                    </div>
+                </div>
 
-    <!-- Contact -->
-    <section id="contact">
-        <h2>Get In Touch</h2>
-        <p><strong>Phone:</strong> <a href="tel:+918639975852">+91 8639975852</a></p>
-        <p><strong>Email:</strong> <a href="mailto:mallarapuyaswanth05@gmail.com">mallarapuyaswanth05@gmail.com</a></p>
-        <p>
-            <strong>Connect with me on:</strong><br>
-            <a href="https://www.linkedin.com/in/my2004/" target="_blank" rel="noopener noreferrer">LinkedIn</a> |
-            <a href="https://github.com/MYG-1107" target="_blank" rel="noopener noreferrer">GitHub</a> |
-            <a href="https://scholar.google.com/citations?user=3PFmLI4AAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a> |
-            <a href="https://www.researchgate.net/profile/Yaswanth-Mallarapu?ev=hdr_xprf" target="_blank" rel="noopener noreferrer">ResearchGate</a> |
-            <a href="https://www.credly.com/users/mallarapu-yaswanth/badges/credly" target="_blank" rel="noopener noreferrer">Credly</a> |
-            <a href="https://www.hackerrank.com/profile/mallarapuyaswan1" target="_blank" rel="noopener noreferrer">HackerRank</a> |
-            <a href="https://www.duolingo.com/profile/yaswanth.no" target="_blank" rel="noopener noreferrer">Duolingo</a>
-        </p>
-        <p><a href="https://maps.app.goo.gl/2jpQPiRztzEWqfHz7" target="_blank" rel="noopener noreferrer">📍 Patharlapadu, Tirumalayapalem, Khammam, Telangana, India 507183</a></p>
-    </section>
-
-    <!-- Declaration -->
-    <section id="declaration" class="resume-section">
-        <h2>Declaration</h2>
-        <p style="text-align: justify;">
-            I hereby declare that all the information provided is true and accurate to the best of my knowledge. I take full responsibility for the authenticity of the details mentioned here.
-        </p>
-        <p>
-            <strong>Regards,</strong><br>
-            Mallarapu Yaswanth<br>
-            Machine Learning Engineer | Software Engineer | Certified Prompt Engineer<br>
-            <a href="tel:+918639975852">+91 8639975852</a><br>
-            <a href="mailto:mallarapuyaswanth05@gmail.com">mallarapuyaswanth05@gmail.com</a>
-        </p>
-    </section>
+                <div class="social-link-bar">
+                    <a href="https://www.linkedin.com/in/my2004/" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">LinkedIn ↗</a>
+                    <a href="https://github.com/MYG-1107" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">GitHub ↗</a>
+                    <a href="https://scholar.google.com/citations?user=3PFmLI4AAAAJ&hl=en" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">Google Scholar ↗</a>
+                    <a href="https://www.researchgate.net/profile/Yaswanth-Mallarapu?ev=hdr_xprf" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">ResearchGate ↗</a>
+                    <a href="https://www.credly.com/users/mallarapu-yaswanth/badges/credly" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">Credly Badges ↗</a>
+                    <a href="https://www.hackerrank.com/profile/mallarapuyaswan1" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">HackerRank ↗</a>
+                    <a href="https://www.duolingo.com/profile/yaswanth.no" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">Duolingo ↗</a>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <!-- Footer -->
-    <footer>
-        <p>© <span id="currentYear"></span> Mallarapu Yaswanth. All Rights Reserved.</p>
-        <p align="center">
-            <img src="https://komarev.com/ghpvc/?username=MYG-1107&label=Profile%20views&color=A45A3D&style=flat" alt="Profile views counter"/>
+    <footer class="site-footer">
+        <p>© <span id="currentYear"></span> Mallarapu Yaswanth. All rights reserved.</p>
+        <p style="margin-top: 6px; font-size: 0.8rem; color: #B0C7D6;">
+            Designed in alignment with Nordic public digital design guidelines (Aksel/UDI).
         </p>
+        <div style="margin-top: 14px;">
+            <img src="https://komarev.com/ghpvc/?username=MYG-1107&label=Profile%20views&color=0067C5&style=flat" alt="Profile views counter"/>
+        </div>
     </footer>
 
+    <!-- Interactive Navigation Scripts -->
     <script>
-        // Hamburger Menu
+        // Hamburger Menu Functionality
         const hamburger = document.querySelector('.hamburger');
-        const navLinks = document.querySelector('#nav-menu');
+        const navMenu = document.querySelector('#nav-menu');
 
-        if (hamburger && navLinks) {
+        if (hamburger && navMenu) {
             const closeMenu = () => {
-                navLinks.classList.remove('active');
-                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
                 hamburger.setAttribute('aria-expanded', 'false');
             };
 
             hamburger.addEventListener('click', () => {
-                const isActive = navLinks.classList.toggle('active');
-                hamburger.classList.toggle('active', isActive);
+                const isActive = navMenu.classList.toggle('active');
                 hamburger.setAttribute('aria-expanded', String(isActive));
             });
 
-            navLinks.querySelectorAll('a').forEach((link) => {
+            navMenu.querySelectorAll('a').forEach(link => {
                 link.addEventListener('click', closeMenu);
             });
 
-            document.addEventListener('click', (event) => {
-                if (!navLinks.contains(event.target) && !hamburger.contains(event.target)) {
+            document.addEventListener('click', (e) => {
+                if (!navMenu.contains(e.target) && !hamburger.contains(e.target)) {
                     closeMenu();
                 }
             });
         }
 
-        // Current Year
+        // Active State Observer for Nav Links
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-menu a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 120;
+                if (window.pageYOffset >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Set Current Year Dynamically
         document.getElementById("currentYear").textContent = new Date().getFullYear();
     </script>
 </body>
