@@ -17,8 +17,8 @@
     <!-- Primary Search Engine Optimization (SEO) -->
     <title>Mallarapu Yaswanth | Machine Learning Engineer & AI Engineer</title>
     <meta name="title" content="Mallarapu Yaswanth | Machine Learning Engineer & AI Engineer">
-    <meta name="description" content="Portfolio and CV of Mallarapu Yaswanth, Machine Learning Engineer specializing in FastAPI microservices, LLM orchestration (LangChain, LlamaIndex), agentic workflows, explainable AI, and scalable full-stack enterprise platforms.">
-    <meta name="keywords" content="Mallarapu Yaswanth, Machine Learning Engineer Norway, AI Engineer India, FastAPI Microservices, LangChain, LlamaIndex, SITER Academy, Mealgrid, Explainable AI, Computer Vision Azure, Full Stack Developer, Certified Prompt Engineer">
+    <meta name="description" content="Portfolio and CV of Mallarapu Yaswanth, Machine Learning & AI Engineer specializing in FastAPI microservices, LLM orchestration (LangChain, LlamaIndex), feature engineering, agentic workflows, and scalable full-stack enterprise platforms.">
+    <meta name="keywords" content="Mallarapu Yaswanth, Machine Learning Engineer Norway, AI Engineer India, FastAPI Microservices, LangChain, LlamaIndex, Agentic AI, SITER Academy, Mealgrid, Explainable AI, Computer Vision Azure, Full Stack Developer, Certified Prompt Engineer">
     <meta name="author" content="Mallarapu Yaswanth">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     <link rel="canonical" href="https://myg-1107.github.io/Portfolio-Mallarapu-Yaswanth/">
@@ -86,7 +86,7 @@
                 "@type": "Country",
                 "name": "Norway (Remote)"
               },
-              "skills": "Python, FastAPI, Feature Engineering, Explainable AI, Docker, RESTful APIs, Time-Series Analysis, LLM Orchestration, LangChain, LlamaIndex"
+              "skills": "Python, FastAPI, Feature Engineering, Explainable AI, Docker, RESTful APIs, Time-Series Analysis, LLM Orchestration, LangChain, LlamaIndex, Agentic Workflows"
             },
             {
               "@type": "Occupation",
@@ -146,21 +146,21 @@
            ========================================================================== */
         :root {
             /* Clean Crisp Nordic Palette */
-            --color-bg: #F4F6F8;                  /* Light Ice Gray Canvas */
-            --color-surface: #FFFFFF;             /* Pure Clean White */
-            --color-surface-subtle: #F8FAFC;      /* Crisp Layer Background */
+            --color-bg: #F4F6F8;
+            --color-surface: #FFFFFF;
+            --color-surface-subtle: #F8FAFC;
             
-            --color-text-main: #111827;           /* High-Contrast Charcoal */
-            --color-text-body: #374151;           /* Slate Body Text */
-            --color-text-muted: #6B7280;          /* Subtle Meta Text */
+            --color-text-main: #111827;
+            --color-text-body: #374151;
+            --color-text-muted: #6B7280;
             
-            --color-nordic-blue: #0056B3;         /* Royal Nordic Primary Blue */
-            --color-nordic-hover: #004085;        /* Deep Blue Hover */
-            --color-nordic-light: #EBF4FE;        /* Soft Blue Accent Pill */
-            --color-nordic-navy: #0F2841;         /* Institutional Top Navy */
+            --color-nordic-blue: #0056B3;
+            --color-nordic-hover: #004085;
+            --color-nordic-light: #EBF4FE;
+            --color-nordic-navy: #0F2841;
             
-            --color-border: #E5E7EB;              /* Crisp Border */
-            --color-border-hover: #CBD5E1;        /* Focused Border */
+            --color-border: #E5E7EB;
+            --color-border-hover: #CBD5E1;
             
             --color-success-bg: #EAF8EF;
             --color-success-text: #0E703C;
@@ -201,42 +201,6 @@
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
-        }
-
-        /* Top Government/Agency Ribbon */
-        .agency-top-bar {
-            background-color: var(--color-nordic-navy);
-            color: #F8FAFC;
-            font-size: 0.8125rem;
-            padding: 8px 0;
-            border-bottom: 2px solid var(--color-nordic-blue);
-        }
-
-        .agency-top-inner {
-            max-width: var(--container-width);
-            margin: 0 auto;
-            padding: 0 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .status-dot-wrap {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            font-weight: 500;
-        }
-
-        .pulse-circle {
-            width: 8px;
-            height: 8px;
-            background-color: #10B981;
-            border-radius: 50%;
-            display: inline-block;
-            box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.3);
         }
 
         /* Header Navigation */
@@ -828,6 +792,18 @@
             color: var(--color-text-muted);
         }
 
+        .view-counter-container {
+            margin-top: 14px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .view-counter-container img {
+            display: block;
+            height: 20px;
+        }
+
         /* Responsive Mobile Views */
         @media (max-width: 860px) {
             .hero-panel {
@@ -1006,7 +982,7 @@
                 <span class="section-counter">Featured Work</span>
             </header>
             <div class="projects-layout">
-                <!-- Project 1: Bachelors Finance Manager (NEW from resume) -->
+                <!-- Project 1: Bachelors Finance Manager -->
                 <div class="project-unit">
                     <div>
                         <h4>Bachelors Finance Manager</h4>
@@ -1355,8 +1331,10 @@
     <!-- Footer -->
     <footer class="site-footer" role="contentinfo">
         <p>© <span id="currentYear"></span> Mallarapu Yaswanth. All rights reserved.</p>
-        <div style="margin-top: 12px;">
-            <img src="https://komarev.com/ghpvc/?username=MYG-1107&label=Profile%20views&color=0056B3&style=flat" alt="Profile views counter">
+        <div class="view-counter-container">
+            <img id="profile-view-counter" 
+                 src="https://hits.sh/myg-1107.github.io/Portfolio-Mallarapu-Yaswanth.svg?label=Profile%20views&color=0056b3&style=flat" 
+                 alt="Profile views counter">
         </div>
     </footer>
 
@@ -1409,8 +1387,15 @@
             });
         });
 
-        // Set Dynamic Year
+        // Dynamic Year
         document.getElementById("currentYear").textContent = new Date().getFullYear();
+
+        // Real-Time Web View Counter Cache-Buster
+        const counterEl = document.getElementById("profile-view-counter");
+        if (counterEl) {
+            const baseUrl = "https://hits.sh/myg-1107.github.io/Portfolio-Mallarapu-Yaswanth.svg";
+            counterEl.src = `${baseUrl}?label=Profile%20views&color=0056b3&style=flat&_cb=${Date.now()}`;
+        }
     </script>
 </body>
 </html>
