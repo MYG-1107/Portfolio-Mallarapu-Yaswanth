@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Claim Verification Service | Mallarapu Yaswanth</title>
+  <meta name="description" content="An evidence-first FastAPI microservice that retrieves relevant source passages and evaluates incoming claims against indexed reference material.">
+  <meta name="author" content="Mallarapu Yaswanth">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <link rel="canonical" href="https://mallarapuyaswanth.me/claim-verification-service/">
+  <link rel="icon" type="image/jpeg" href="/1699555731008.jpg">
+  <meta name="theme-color" content="#0056b3">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mallarapuyaswanth.me/claim-verification-service/">
+  <meta property="og:title" content="Claim Verification Service | Mallarapu Yaswanth">
+  <meta property="og:description" content="An evidence-first FastAPI microservice that retrieves relevant source passages and evaluates incoming claims against indexed reference material.">
+  <meta property="og:image" content="https://mallarapuyaswanth.me/1699555731008.jpg">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Claim Verification Service | Mallarapu Yaswanth">
+  <meta name="twitter:description" content="An evidence-first FastAPI microservice that retrieves relevant source passages and evaluates incoming claims against indexed reference material.">
+  <link rel="stylesheet" href="/assets/css/detail-pages.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Claim Verification Service","description":"An evidence-first FastAPI microservice that retrieves relevant source passages and evaluates incoming claims against indexed reference material.","url":"https://mallarapuyaswanth.me/claim-verification-service/","isPartOf":{"@type":"WebSite","name":"Mallarapu Yaswanth Portfolio","url":"https://mallarapuyaswanth.me/"}}</script>
+</head>
+<body><a class="skip-link" href="#main-content">Skip to main content</a>
+<header class="site-header"><div class="header-inner">
+  <a class="brand" href="/" aria-label="Mallarapu Yaswanth home">
+    <img src="/1699555731008.jpg" alt="" width="40" height="40">
+    <span class="brand-copy"><strong>MALLARAPU YASWANTH</strong><span>Machine Learning &amp; AI Engineer</span></span>
+  </a>
+  <button class="nav-toggle" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="Open navigation">Menu ☰</button>
+  <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+    <a href="/">Home</a><a href="/projects/">Projects</a><a href="/experience/">Experience</a>
+    <a href="/honors-awards/">Awards</a><a href="/education/">Education</a><a href="/certificates/">Certificates</a>
+  </nav>
+</div></header>
+<main class="page-shell" id="main-content">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/projects/">Projects</a><span>/</span><span aria-current="page">Claim Verification Service</span></nav>
+  <section class="page-hero">
+    <p class="eyebrow">AI &amp; data engineering · Project case study</p>
+    <h1>Claim Verification Service</h1>
+    <p class="lead">An evidence-first FastAPI microservice that retrieves relevant source passages and evaluates incoming claims against indexed reference material.</p>
+    <ul class="quick-facts"><li>Repository-backed project</li><li>AI &amp; data engineering</li><li>Project detail</li></ul>
+    <div class="action-row"><a class="button" href="https://github.com/MYG-1107/Claim-Verification-Service" target="_blank" rel="noopener noreferrer">View GitHub repository ↗</a><a class="button" href="/projects/">All projects</a></div>
+  </section>
+  <div class="content-grid">
+    <article class="content-card">
+      <h2>Project overview</h2><p>Claim Verification Service is a small retrieval-based verification API. Reference text is ingested into a local ChromaDB vector store, then an incoming claim is compared with relevant retrieved passages.</p>
+      <h2>The problem it addresses</h2><p>A useful verification result needs to show what evidence was retrieved, not just return a label with no explanation.</p>
+      <h2>Engineering approach</h2><p>The service uses all-MiniLM-L6-v2 sentence embeddings to retrieve related excerpts. Strict Pydantic schemas define the request and response, and a configurable threshold controls the deterministic VERIFIED or UNVERIFIED response along with a confidence score and source excerpt.</p>
+      <h2>Key capabilities</h2><ul><li>Ingest reference documents through a versioned API endpoint.</li><li>Retrieve the closest source excerpts for a submitted claim.</li><li>Return a VERIFIED or UNVERIFIED label, confidence score and evidence excerpt.</li><li>Persist the local ChromaDB collection between service restarts.</li><li>Run in a local Python environment, Docker container or GitHub Codespaces.</li></ul>
+      <h2>Scope and limitations</h2><p>The returned label is bounded by the quality, coverage and freshness of the indexed sources and the configured similarity threshold. It is an evidence-retrieval aid, not a guarantee that a claim is universally true or false. No public hosted API URL is listed in the repository.</p>
+    </article>
+    <aside class="sidebar">
+      <section class="sidebar-card"><h2>Technology</h2><div class="tag-list"><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">Pydantic</span><span class="tag">Sentence Transformers</span><span class="tag">ChromaDB</span><span class="tag">Docker</span><span class="tag">pytest</span></div></section>
+      <section class="sidebar-card"><h2>Project links</h2><ul class="sidebar-list">
+        <li><a href="https://github.com/MYG-1107/Claim-Verification-Service" target="_blank" rel="noopener noreferrer">GitHub source</a></li>
+        
+        
+      </ul></section>
+      <section class="sidebar-card"><h2>Explore more</h2><div class="related-links">
+        <a href="/experience/">Professional experience</a><a href="/honors-awards/">Honors &amp; awards</a><a href="/certificates/">Certifications</a>
+      </div></section>
+    </aside>
+  </div>
+</main>
+<footer class="site-footer"><p>© <span id="footer-year">2026</span> Mallarapu Yaswanth.</p>
+  <div class="footer-links"><a href="/">Portfolio home</a><a href="/projects/">Projects</a><a href="mailto:mallarapuyaswanth05@gmail.com">Contact</a><a href="https://github.com/MYG-1107" target="_blank" rel="noopener noreferrer">GitHub profile</a></div>
+</footer><script src="/assets/js/detail-pages.js" defer></script></body></html>
