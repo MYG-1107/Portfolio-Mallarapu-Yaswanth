@@ -278,6 +278,7 @@ class ResponsiveBrowserTests(unittest.TestCase):
             (320, 740),
             (375, 812),
             (768, 1024),
+            (900, 800),
             (1024, 768),
             (1440, 900),
         ]
@@ -298,7 +299,7 @@ class ResponsiveBrowserTests(unittest.TestCase):
                     f"Horizontal overflow at {width}px: {dimensions}",
                 )
 
-                if width <= 860:
+                if width <= 960:
                     self.assertTrue(
                         page.locator(".hero-photo-wrap").is_visible(),
                         f"Profile portrait should remain visible at {width}px.",
