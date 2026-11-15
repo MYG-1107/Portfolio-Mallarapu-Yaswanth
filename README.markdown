@@ -39,7 +39,7 @@ python -m playwright install chromium
 python -m unittest discover -s tests -v
 ```
 
-The test suite checks document metadata, unique IDs, section links, local assets, image alternative text, secure external-link attributes, structured-data JSON, JavaScript syntax, sitemap/robots consistency, mobile menu behavior, browser errors, and horizontal overflow at 320px, 375px, 768px, 1024px, and 1440px viewport widths. Browser screenshots are written to `test-results/`.
+The test suite checks document metadata, unique IDs, section links, local assets, image alternative text, secure external-link attributes, structured-data JSON, JavaScript syntax, sitemap/robots consistency, mobile menu behavior, browser errors, and horizontal overflow at 320px, 375px, 768px, 900px, 1024px, and 1440px viewport widths. Browser screenshots are written to `test-results/`.
 
 GitHub Actions runs the same checks for pull requests and pushes to `main`.
 
