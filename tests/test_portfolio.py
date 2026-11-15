@@ -423,7 +423,7 @@ class ResponsiveBrowserTests(unittest.TestCase):
             page.locator('.nav-menu a[href="/projects/"]').click()
             self.assertTrue(page.url.endswith("/projects/"))
             self.assertFalse(menu.is_visible())
-            self.assertEqual(button.get_attribute("aria-expanded"), "false")
+            self.assertEqual(page.locator(".nav-toggle").get_attribute("aria-expanded"), "false")
 
             page.set_viewport_size({"width": 1440, "height": 900})
             self.assertFalse(page.locator(".nav-toggle").is_visible())
