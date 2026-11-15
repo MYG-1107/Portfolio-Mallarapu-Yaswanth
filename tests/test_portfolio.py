@@ -426,8 +426,8 @@ class ResponsiveBrowserTests(unittest.TestCase):
             self.assertEqual(button.get_attribute("aria-expanded"), "false")
 
             page.set_viewport_size({"width": 1440, "height": 900})
-            self.assertFalse(button.is_visible())
-            self.assertTrue(menu.is_visible())
+            self.assertFalse(page.locator(".nav-toggle").is_visible())
+            self.assertTrue(page.locator(".site-nav").is_visible())
         finally:
             page.close()
 
