@@ -11,7 +11,7 @@
     </script>
 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <!-- Primary Search Engine Optimization (SEO) -->
@@ -49,8 +49,7 @@
     <meta name="twitter:image:alt" content="Mallarapu Yaswanth Portrait">
 
     <!-- Favicons -->
-    <link rel="icon" type="image/png" sizes="32x32" href="1699555731008.jpg">
-    <link rel="icon" type="image/png" sizes="16x16" href="1699555731008.jpg">
+    <link rel="icon" type="image/jpeg" href="1699555731008.jpg">
     <link rel="apple-touch-icon" href="1699555731008.jpg">
 
     <!-- Google Fonts: Scandinavian Clean Typography (Inter & Plus Jakarta Sans) -->
@@ -219,6 +218,38 @@
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Keyboard access and sticky-header anchor positioning */
+        section[id] {
+            scroll-margin-top: 88px;
+        }
+
+        .skip-link {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            z-index: 2000;
+            padding: 10px 14px;
+            border-radius: var(--radius-sm);
+            background: var(--color-nordic-navy);
+            color: #FFFFFF;
+            text-decoration: none;
+            transform: translateY(-160%);
+        }
+
+        .skip-link:focus {
+            transform: translateY(0);
+        }
+
+        a:focus-visible,
+        button:focus-visible {
+            outline: 3px solid #F59E0B;
+            outline-offset: 3px;
+        }
+
+        body.mobile-menu-open {
+            overflow: hidden;
         }
 
         /* Header Navigation */
@@ -895,17 +926,34 @@
         /* Responsive Mobile Views */
         @media (max-width: 860px) {
             .hero-panel {
-                grid-template-columns: 1fr;
+                grid-template-columns: minmax(0, 1fr) 112px;
                 padding: 24px 20px;
                 text-align: left;
+                align-items: start;
+            }
+
+            .hero-details {
+                grid-column: 1;
+                grid-row: 1;
             }
 
             .hero-photo-wrap {
-                display: none;
+                display: block;
+                grid-column: 2;
+                grid-row: 1;
+                padding-top: 8px;
             }
 
-            .projects-layout {
-                grid-template-columns: 1fr;
+            .hero-photo {
+                width: 112px;
+                height: 112px;
+            }
+
+            .projects-layout,
+            .skills-matrix,
+            .awards-grid,
+            .certifications-matrix {
+                grid-template-columns: minmax(0, 1fr);
             }
 
             .resume-panel {
@@ -915,15 +963,25 @@
             .nav-menu {
                 display: none;
                 flex-direction: column;
-                position: absolute;
+                position: fixed;
                 top: 68px;
                 left: 0;
                 width: 100%;
+                max-height: calc(100vh - 68px);
+                max-height: calc(100dvh - 68px);
+                overflow-y: auto;
                 background-color: var(--color-surface);
                 border-bottom: 1px solid var(--color-border);
                 padding: 16px 20px;
                 box-shadow: var(--shadow-hover);
                 align-items: stretch;
+                z-index: 1001;
+            }
+
+            .nav-menu a {
+                display: flex;
+                align-items: center;
+                min-height: 44px;
             }
 
             .nav-menu.active {
@@ -937,18 +995,87 @@
             }
 
             .mobile-hamburger {
-                display: block;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                min-height: 44px;
             }
-            
+
             .section-counter {
                 font-size: 0.75rem;
                 padding: 3px 8px;
             }
         }
+
+        @media (max-width: 560px) {
+            .hero-panel {
+                grid-template-columns: minmax(0, 1fr);
+                gap: 18px;
+            }
+
+            .hero-photo-wrap {
+                grid-column: 1;
+                grid-row: 1;
+                padding-top: 0;
+                margin-bottom: 0;
+                text-align: left;
+            }
+
+            .hero-details {
+                grid-column: 1;
+                grid-row: 2;
+            }
+
+            .hero-photo {
+                width: 96px;
+                height: 96px;
+            }
+
+            .section-header-bar {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+
+            .contact-enclosure,
+            .resume-panel {
+                padding: 22px 18px;
+            }
+
+            .nav-container {
+                padding-left: 14px;
+                padding-right: 14px;
+            }
+
+            .brand-text h1 {
+                font-size: 0.92rem;
+            }
+
+            .brand-text span {
+                display: none;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                scroll-behavior: auto !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
     </style>
 </head>
 
 <body itemscope itemtype="https://schema.org/ProfilePage">
+    <a class="skip-link" href="#main-content">Skip to main content</a>
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MSVCCGVV"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -963,7 +1090,7 @@
                     <span>Machine Learning & AI Engineer</span>
                 </div>
             </a>
-            <button class="mobile-hamburger" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle navigation menu">
+            <button class="mobile-hamburger" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Open navigation menu">
                 Menu ☰
             </button>
             <nav id="nav-menu" role="navigation" aria-label="Primary Navigation">
@@ -1107,7 +1234,7 @@
                         <p>Production computer vision model classifying 8 classical Indian dance forms from single images using Microsoft Azure Custom Vision. Deployed as a real-time web application handling predictions via integrated RESTful API endpoints.</p>
                     </div>
                     <div class="project-actions">
-                        <a href="https://mallarapuyaswanth.wordpress.com/wp-content/uploads/2026/07/ai-computer-vision-project-done-by-mallarapu-yaswanth.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">GitHub Repo ↗</a>
+                        <a href="https://mallarapuyaswanth.wordpress.com/wp-content/uploads/2026/07/ai-computer-vision-project-done-by-mallarapu-yaswanth.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">Project PDF ↗</a>
                     </div>
                 </div>
 
@@ -1152,10 +1279,7 @@
                         <h4>Python Terminal-Based Educational Games</h4>
                         <p>Suite of CLI applications designed to train students on terminal command primitives (CRUD, memory management, buffer loads, and operational shortcuts).</p>
                     </div>
-                    <div class="project-actions">
-                        <a href="https://github.com/MYG-1107/Python-Terminal-Based-Games" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">Repo</a>
-                        <a href="https://myg-1107.github.io/Python-Terminal-Based-Games/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">Docs ↗</a>
-                    </div>
+
                 </div>
             </div>
         </section>
@@ -1534,63 +1658,93 @@
         <div class="view-counter-container">
             <img id="profile-view-counter" 
                  src="https://hits.sh/myg-1107.github.io/Portfolio-Mallarapu-Yaswanth.svg?label=Profile%20views&color=0056b3&style=flat" 
-                 alt="Profile views counter">
+                 alt="Profile views counter" loading="lazy" decoding="async">
         </div>
     </footer>
 
     <!-- Interactive Scripts -->
     <script>
-        // Responsive Hamburger Toggle
-        const hamburgerBtn = document.querySelector('.mobile-hamburger');
-        const navMenuEl = document.querySelector('.nav-menu');
+        // Accessible mobile navigation
+        const hamburgerBtn = document.querySelector(".mobile-hamburger");
+        const navContainer = document.getElementById("nav-menu");
+        const navMenuEl = navContainer ? navContainer.querySelector(".nav-menu") : null;
 
-        if (hamburgerBtn && navMenuEl) {
-            const closeMenu = () => {
-                navMenuEl.classList.remove('active');
-                hamburgerBtn.setAttribute('aria-expanded', 'false');
-            };
+        const setMenuOpen = (isOpen, restoreFocus = false) => {
+            if (!hamburgerBtn || !navMenuEl) return;
 
-            hamburgerBtn.addEventListener('click', () => {
-                const isOpen = navMenuEl.classList.toggle('active');
-                hamburgerBtn.setAttribute('aria-expanded', String(isOpen));
+            navMenuEl.classList.toggle("active", isOpen);
+            hamburgerBtn.setAttribute("aria-expanded", String(isOpen));
+            hamburgerBtn.setAttribute(
+                "aria-label",
+                isOpen ? "Close navigation menu" : "Open navigation menu"
+            );
+            document.body.classList.toggle("mobile-menu-open", isOpen);
+
+            if (!isOpen && restoreFocus) {
+                hamburgerBtn.focus();
+            }
+        };
+
+        if (hamburgerBtn && navContainer && navMenuEl) {
+            hamburgerBtn.addEventListener("click", () => {
+                const isOpen = hamburgerBtn.getAttribute("aria-expanded") !== "true";
+                setMenuOpen(isOpen);
             });
 
-            navMenuEl.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', closeMenu);
+            navMenuEl.querySelectorAll("a").forEach((link) => {
+                link.addEventListener("click", () => setMenuOpen(false));
             });
 
-            document.addEventListener('click', (e) => {
-                if (!navMenuEl.contains(e.target) && !hamburgerBtn.contains(e.target)) {
-                    closeMenu();
+            document.addEventListener("click", (event) => {
+                if (
+                    !navContainer.contains(event.target) &&
+                    !hamburgerBtn.contains(event.target)
+                ) {
+                    setMenuOpen(false);
+                }
+            });
+
+            document.addEventListener("keydown", (event) => {
+                if (
+                    event.key === "Escape" &&
+                    hamburgerBtn.getAttribute("aria-expanded") === "true"
+                ) {
+                    setMenuOpen(false, true);
+                }
+            });
+
+            window.addEventListener("resize", () => {
+                if (window.innerWidth > 860) {
+                    setMenuOpen(false);
                 }
             });
         }
 
-        // Active State Scroll Observer
-        const observedSections = document.querySelectorAll('section[id]');
-        const menuLinks = document.querySelectorAll('.nav-menu a');
+        // Active navigation link based on the current scroll position
+        const observedSections = document.querySelectorAll("section[id]");
+        const menuLinks = document.querySelectorAll(".nav-menu a");
 
-        window.addEventListener('scroll', () => {
-            let activeId = '';
-            observedSections.forEach(sec => {
-                const top = sec.offsetTop - 120;
-                if (window.pageYOffset >= top) {
-                    activeId = sec.getAttribute('id');
+        window.addEventListener("scroll", () => {
+            let activeId = "";
+            observedSections.forEach((section) => {
+                if (window.pageYOffset >= section.offsetTop - 120) {
+                    activeId = section.getAttribute("id");
                 }
             });
 
-            menuLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${activeId}`) {
-                    link.classList.add('active');
-                }
+            menuLinks.forEach((link) => {
+                const isActive = link.getAttribute("href") === `#${activeId}`;
+                link.classList.toggle("active", isActive);
             });
-        });
+        }, { passive: true });
 
-        // Dynamic Year
-        document.getElementById("currentYear").textContent = new Date().getFullYear();
+        // Dynamic footer year
+        const currentYear = document.getElementById("currentYear");
+        if (currentYear) {
+            currentYear.textContent = new Date().getFullYear();
+        }
 
-        // Real-Time Web View Counter Cache-Buster
+        // Refresh the third-party view counter without blocking page rendering
         const counterEl = document.getElementById("profile-view-counter");
         if (counterEl) {
             const baseUrl = "https://hits.sh/myg-1107.github.io/Portfolio-Mallarapu-Yaswanth.svg";
