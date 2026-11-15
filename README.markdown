@@ -1,48 +1,48 @@
-# Mallarapu Yaswanth
-Currently Working as Freelancer - <strong>Software Engineer</strong> at SITER Academy, Norway.
-## Overview
-This is a <i>personal portfolio website</i> showcasing the skills, projects, internships, education, and achievements of <b>Mallarapu Yaswanth</b>, a <i>Computer Science and Engineering student specializing in AI & ML</i>. The website is designed with a modern, neubrutalist aesthetic, featuring interactive elements and a clean, responsive layout.
+# Mallarapu Yaswanth — Personal Portfolio
 
-## Features
-- **Navigation Bar**: Sticky navigation with smooth scrolling to sections like Home, About, Internships, Research, Projects, Education, Skills, Certifications, Extracurricular, and Contact.
-- **Hero Section**: A dynamic 3D background using Three.js, with animated text and a call-to-action button.
-- **Responsive Design**: Optimized for mobile and desktop devices with media queries for smaller screens.
-- **Interactive Animations**: GSAP-powered animations for section reveals, navigation hovers, and hero content.
-- **Excel File Processing**: JavaScript function to process `.xlsx` files using the SheetJS library, filtering out blank rows and converting data to CSV format.
-- **Form Submission**: A contact form with client-side validation and feedback.
-- **Security Features**: Right-click and copy functionality are disabled to protect content.
+A static, single-page professional portfolio for Mallarapu Yaswanth. The live site is published at [mallarapuyaswanth.me](https://mallarapuyaswanth.me/) from this repository.
 
-## Technologies Used
-- **HTML5**: Structure of the webpage.
-- **CSS3**: Styling with neubrutalist design, custom fonts (Bebas Neue, Merriweather, Montserrat), and responsive layouts.
-- **JavaScript**:
-  - **Three.js**: For the 3D torus animation in the hero section.
-  - **GSAP & ScrollTrigger**: For smooth scroll-based animations and hover effects.
-  - **SheetJS (XLSX)**: For processing Excel files.
-- **External Libraries**:
-  - Three.js (v128)
-  - GSAP (v3.12.2)
-  - Google Fonts (Bebas Neue, Merriweather, Montserrat)
-- **APIs & Tools**:
-  - Smooth scrolling for navigation.
-  - Client-side form handling.
+## What the site contains
 
-## Usage
-- Navigate through sections using the top navigation bar.
-- Explore internship experiences, research publications, projects, and certifications.
-- Use the contact form to send a message (client-side feedback only; no backend integration).
-- View certifications and research papers via linked Google Drive URLs.
+- Professional experience and selected engineering work
+- Project summaries and live demonstrations
+- Technical skills, awards, education, and certifications
+- Direct email and telephone contact links
+- A downloadable and browser-viewable PDF résumé
+- Search and social-sharing metadata, including Schema.org JSON-LD
 
+## Technology and runtime
 
-## Future Improvements
-- Add backend integration for the contact form to send emails.
-- Optimize image loading for faster performance.
-- Enhance accessibility with ARIA attributes and keyboard navigation.
-- Expand the projects section with detailed descriptions and live demo links.
+The published site is a static HTML document. Its primary layout and responsive styles are embedded in `index.html`, and the active navigation/year/view-counter behavior is also embedded near the end of that file. There is no application server, database, or contact-form backend; visitors contact the owner through the listed email and telephone links.
 
-## Contact
-For inquiries, reach out to:
-- Email: [mallarapuyaswanth05@gmail.com](mailto:mallarapuyaswanth05@gmail.com)
-- GitHub: [MYG-1107](https://github.com/MYG-1107)
-- LinkedIn: [my2004](https://linkedin.com/in/my2004)
-<<<<<<< HEAD
+The repository also retains standalone `styles.css`, `scripts.js`, and `xlsx.js` files from earlier experiments. They are not loaded by the current `index.html`. The JavaScript files are still syntax-checked so they remain safe to reuse or remove deliberately later.
+
+External services currently referenced by the page include Google Fonts, Google tag/analytics, and the hits.sh profile-view badge. The core portfolio content and local résumé remain available if those services are blocked.
+
+## Run locally
+
+Python's built-in static server is sufficient; no build step is required:
+
+```bash
+python -m http.server 8000
+```
+
+Open [http://localhost:8000](http://localhost:8000).
+
+## Quality checks
+
+The repository includes static integrity checks and Playwright browser tests for desktop, tablet, and narrow mobile layouts.
+
+```bash
+python -m pip install -r requirements-test.txt
+python -m playwright install chromium
+python -m unittest discover -s tests -v
+```
+
+The test suite checks document metadata, unique IDs, section links, local assets, image alternative text, secure external-link attributes, structured-data JSON, JavaScript syntax, sitemap/robots consistency, mobile menu behavior, browser errors, and horizontal overflow at 320px, 375px, 768px, 900px, 1024px, and 1440px viewport widths. Browser screenshots are written to `test-results/`.
+
+GitHub Actions runs the same checks for pull requests and pushes to `main`.
+
+## Deployment
+
+GitHub Pages serves the repository's `main` branch. The root `CNAME` file maps the deployment to `mallarapuyaswanth.me`. Keep that file and the résumé/image assets in the repository root unless the corresponding paths in `index.html` are updated as part of the same change.
