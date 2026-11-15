@@ -130,6 +130,8 @@ class StaticIntegrityTests(unittest.TestCase):
             if not relative_path:
                 continue
             target = ROOT / relative_path
+            if target.is_dir():
+                target = target / "index.html"
             self.assertTrue(target.is_file(), f"Missing local resource: {url}")
 
         for anchor in self.document.anchors:
@@ -141,8 +143,11 @@ class StaticIntegrityTests(unittest.TestCase):
                 continue
             relative_path = unquote(parsed.path).lstrip("/")
             if relative_path:
+                target = ROOT / relative_path
+                if target.is_dir():
+                    target = target / "index.html"
                 self.assertTrue(
-                    (ROOT / relative_path).is_file(),
+                    target.is_file(),
                     f"Missing local link target: {href}",
                 )
 
@@ -170,7 +175,7 @@ class StaticIntegrityTests(unittest.TestCase):
         node = shutil.which("node")
         self.assertIsNotNone(node, "Node.js is required for JavaScript syntax checks.")
 
-        for script_path in sorted(ROOT.glob("*.js")):
+        for script_path in sorted(ROOT.rglob("*.js")):
             result = subprocess.run(
                 [node, "--check", str(script_path)],
                 capture_output=True,
@@ -205,6 +210,69 @@ class StaticIntegrityTests(unittest.TestCase):
                     f"Inline JavaScript syntax error:\n{result.stderr}",
                 )
 
+
+    def test_portfolio_detail_pages_and_sitemap(self) -> None:
+        import xml.etree.ElementTree as ET
+
+        detail_pages = sorted(
+            path for path in ROOT.glob("*/index.html")
+            if path.parent != ROOT and path.name == "index.html"
+        )
+        self.assertGreaterEqual(len(detail_pages), 33, "Expected project and category detail pages.")
+
+        expected_routes = {f"/{path.parent.name}/" for path in detail_pages}
+        for page_path in detail_pages:
+            source = page_path.read_text(encoding="utf-8")
+            self.assertRegex(source, r"<title>[^<]{8,}</title>", page_path.as_posix())
+            self.assertRegex(source, r'<h1\b[^>]*>[^<]{3,}</h1>', page_path.as_posix())
+            self.assertRegex(
+                source,
+                rf'<link rel="canonical" href="https://mallarapuyaswanth\.me/{page_path.parent.name}/">',
+                page_path.as_posix(),
+            )
+            parser = PortfolioHTMLParser()
+            parser.feed(source)
+            parser.close()
+            self.assertEqual(
+                len(parser.ids), len(set(parser.ids)),
+                f"Duplicate ids on {page_path.parent.name}",
+            )
+            self.assertTrue(
+                any(resource == "/assets/css/detail-pages.css" for resource in parser.resources),
+                f"Shared CSS missing from {page_path.parent.name}",
+            )
+
+        sitemap = ET.parse(ROOT / "sitemap.xml").getroot()
+        namespace = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
+        locations = {
+            node.text
+            for node in sitemap.findall("sm:url/sm:loc", namespace)
+        }
+        self.assertIn("https://mallarapuyaswanth.me/", locations)
+        for route in expected_routes:
+            self.assertIn(
+                f"https://mallarapuyaswanth.me{route}",
+                locations,
+                f"Route missing from sitemap: {route}",
+            )
+
+    def test_homepage_links_to_detail_hubs_and_project_cases(self) -> None:
+        required_links = [
+            'href="/projects/"',
+            'href="/experience/"',
+            'href="/honors-awards/"',
+            'href="/education/"',
+            'href="/certificates/"',
+            'href="/bachelor-finance-manager/"',
+            'href="/indian-dance-classification/"',
+            'href="/ejite-journal-management-system/"',
+            'href="/learn-norwegian/"',
+            'href="/webrtc-voice-chat/"',
+            'href="/python-terminal-games/"',
+        ]
+        for link in required_links:
+            self.assertIn(link, self.source, f"Homepage is missing detail-page link: {link}")
+
     def test_sitemap_robots_and_repository_hygiene(self) -> None:
         import xml.etree.ElementTree as ET
 
@@ -215,7 +283,9 @@ class StaticIntegrityTests(unittest.TestCase):
             node.text
             for node in sitemap.findall("sm:url/sm:loc", namespace)
         ]
-        self.assertEqual(locations, ["https://mallarapuyaswanth.me/"])
+        self.assertIn("https://mallarapuyaswanth.me/", locations)
+        self.assertEqual(len(locations), len(set(locations)), "Sitemap URLs must be unique.")
+        self.assertGreater(len(locations), 20, "Sitemap should include the new detail routes.")
 
         robots = (ROOT / "robots.txt").read_text(encoding="utf-8")
         self.assertIn("Sitemap: https://mallarapuyaswanth.me/sitemap.xml", robots)
@@ -350,14 +420,69 @@ class ResponsiveBrowserTests(unittest.TestCase):
             )
 
             button.click()
-            page.locator('.nav-menu a[href="#projects"]').click()
-            self.assertEqual(page.evaluate("window.location.hash"), "#projects")
+            page.locator('.nav-menu a[href="/projects/"]').click()
+            self.assertTrue(page.url.endswith("/projects/"))
             self.assertFalse(menu.is_visible())
-            self.assertEqual(button.get_attribute("aria-expanded"), "false")
+            self.assertEqual(page.locator(".nav-toggle").get_attribute("aria-expanded"), "false")
 
             page.set_viewport_size({"width": 1440, "height": 900})
-            self.assertFalse(button.is_visible())
+            self.assertFalse(page.locator(".nav-toggle").is_visible())
+            self.assertTrue(page.locator(".site-nav").is_visible())
+        finally:
+            page.close()
+
+    def test_detail_pages_render_without_overflow_on_mobile_tablet_and_desktop(self) -> None:
+        page = self.new_local_page()
+        errors: list[str] = []
+        page.on("pageerror", lambda error: errors.append(str(error)))
+        route_pages = sorted(
+            f"/{path.parent.name}/"
+            for path in ROOT.glob("*/index.html")
+            if path.parent != ROOT
+        )
+        try:
+            for width in (320, 768, 1440):
+                page.set_viewport_size({"width": width, "height": 900})
+                for route in route_pages:
+                    response = page.goto(self.base_url.rstrip("/") + route, wait_until="domcontentloaded")
+                    self.assertIsNotNone(response, f"No HTTP response for {route}")
+                    self.assertEqual(response.status, 200, f"Page failed to load: {route}")
+                    self.assertTrue(page.locator("main h1").is_visible(), f"Missing page heading: {route}")
+                    dimensions = page.evaluate(
+                        """() => ({
+                            viewport: document.documentElement.clientWidth,
+                            content: document.documentElement.scrollWidth
+                        })"""
+                    )
+                    self.assertLessEqual(
+                        dimensions["content"],
+                        dimensions["viewport"] + 1,
+                        f"Horizontal overflow at {width}px on {route}: {dimensions}",
+                    )
+            self.assertEqual(errors, [], f"Detail-page JavaScript errors: {errors}")
+        finally:
+            page.close()
+
+    def test_detail_page_mobile_navigation_supports_escape_and_link_navigation(self) -> None:
+        page = self.new_local_page()
+        try:
+            page.set_viewport_size({"width": 390, "height": 844})
+            page.goto(self.base_url.rstrip("/") + "/projects/", wait_until="domcontentloaded")
+            button = page.locator(".nav-toggle")
+            menu = page.locator(".site-nav")
+            self.assertTrue(button.is_visible())
+            self.assertFalse(menu.is_visible())
+            button.click()
             self.assertTrue(menu.is_visible())
+            self.assertEqual(button.get_attribute("aria-expanded"), "true")
+            page.keyboard.press("Escape")
+            self.assertFalse(menu.is_visible())
+            self.assertEqual(button.get_attribute("aria-expanded"), "false")
+            self.assertEqual(page.evaluate("document.activeElement.className"), "nav-toggle")
+            button.click()
+            page.locator('.site-nav a[href="/experience/"]').click()
+            self.assertTrue(page.url.endswith("/experience/"))
+            self.assertFalse(menu.is_visible())
         finally:
             page.close()
 
