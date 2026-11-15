@@ -14,7 +14,7 @@ function loadFileData(filename) {
             var worksheet = workbook.Sheets[firstSheetName];
             var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
             var filteredData = jsonData.filter(row => row.some(filledCell));
- “‘’‘javascript
+
             var headerRowIndex = filteredData.findIndex((row, index) =>
                 index + 1 < filteredData.length && row.filter(filledCell).length >= filteredData[index + 1].filter(filledCell).length
             );
