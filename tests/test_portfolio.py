@@ -420,8 +420,8 @@ class ResponsiveBrowserTests(unittest.TestCase):
             )
 
             button.click()
-            page.locator('.nav-menu a[href="#projects"]').click()
-            self.assertEqual(page.evaluate("window.location.hash"), "#projects")
+            page.locator('.nav-menu a[href="/projects/"]').click()
+            self.assertTrue(page.url.endswith("/projects/"))
             self.assertFalse(menu.is_visible())
             self.assertEqual(button.get_attribute("aria-expanded"), "false")
 
