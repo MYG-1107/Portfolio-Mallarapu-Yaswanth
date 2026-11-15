@@ -175,7 +175,7 @@ class StaticIntegrityTests(unittest.TestCase):
         node = shutil.which("node")
         self.assertIsNotNone(node, "Node.js is required for JavaScript syntax checks.")
 
-        for script_path in sorted(ROOT.glob("*.js")):
+        for script_path in sorted(ROOT.rglob("*.js")):
             result = subprocess.run(
                 [node, "--check", str(script_path)],
                 capture_output=True,
@@ -283,7 +283,9 @@ class StaticIntegrityTests(unittest.TestCase):
             node.text
             for node in sitemap.findall("sm:url/sm:loc", namespace)
         ]
-        self.assertEqual(locations, ["https://mallarapuyaswanth.me/"])
+        self.assertIn("https://mallarapuyaswanth.me/", locations)
+        self.assertEqual(len(locations), len(set(locations)), "Sitemap URLs must be unique.")
+        self.assertGreater(len(locations), 20, "Sitemap should include the new detail routes.")
 
         robots = (ROOT / "robots.txt").read_text(encoding="utf-8")
         self.assertIn("Sitemap: https://mallarapuyaswanth.me/sitemap.xml", robots)
