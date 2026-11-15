@@ -218,7 +218,7 @@ class StaticIntegrityTests(unittest.TestCase):
             path for path in ROOT.glob("*/index.html")
             if path.parent != ROOT and path.name == "index.html"
         )
-        self.assertGreaterEqual(len(detail_pages), 28, "Expected project and category detail pages.")
+        self.assertGreaterEqual(len(detail_pages), 33, "Expected project and category detail pages.")
 
         expected_routes = {f"/{path.parent.name}/" for path in detail_pages}
         for page_path in detail_pages:
