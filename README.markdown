@@ -33,6 +33,3 @@ The suite checks metadata, unique IDs, internal links, local assets, image alter
 
 GitHub Actions runs the checks on pull requests and pushes to `main`, and uploads responsive screenshots as an artifact.
 
-## Deployment
-
-GitHub Pages serves the repository's `main` branch. The root `CNAME` file maps the deployment to `mallarapuyaswanth.me`. Folder-based `index.html` pages provide clean URLs such as `https://mallarapuyaswanth.me/bachelor-finance-manager/`. The XML sitemap lists the homepage and detail routes; `robots.txt` points crawlers to that sitemap.
