@@ -21,10 +21,3 @@ Open [http://localhost:8000](http://localhost:8000).
 
 ## Quality checks
 
-The repository includes Python static-integrity checks and Playwright browser tests.
-
-```bash
-python -m pip install -r requirements-test.txt
-python -m playwright install chromium
-python -m unittest discover -s tests -v
-```
