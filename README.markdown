@@ -31,5 +31,3 @@ python -m unittest discover -s tests -v
 
 The suite checks metadata, unique IDs, internal links, local assets, image alternative text, external-link security attributes, JSON-LD, JavaScript syntax, sitemap and robots consistency, merge-conflict markers, detail-page canonical URLs, and page responsiveness. Browser tests cover 320px, 375px, 768px, 900px, 1024px and 1440px on the homepage and responsive checks across the detail routes. Screenshots are written to `test-results/`.
 
-GitHub Actions runs the checks on pull requests and pushes to `main`, and uploads responsive screenshots as an artifact.
-
