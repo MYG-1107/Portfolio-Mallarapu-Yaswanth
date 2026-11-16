@@ -2,18 +2,6 @@
 
 www.mallarapuyaswanth.me
 
-## Site structure
-
-The root page is the main portfolio overview. Dedicated, clean-URL detail pages are published as folders containing an `index.html` file:
-
-- `/projects/` — directory of project case studies.
-- `/<project-slug>/` — individual project pages, with overview, scope, technology, source and live-demo links where verified.
-- `/experience/` — detailed role history.
-- `/honors-awards/` — awards, conferences and recognition.
-- `/education/` — academic qualifications and scores.
-- `/certificates/` — professional credentials and accreditations.
-
-Shared detail-page layout and responsive navigation live in `assets/css/detail-pages.css` and `assets/js/detail-pages.js`. The main homepage continues to use its embedded design system and navigation script.
 
 ## Content and source accuracy
 
