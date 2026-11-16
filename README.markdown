@@ -1,6 +1,6 @@
 # Mallarapu Yaswanth — Personal Portfolio
 
-mallarapuyaswanth.me
+www.mallarapuyaswanth.me
 
 ## Site structure
 
