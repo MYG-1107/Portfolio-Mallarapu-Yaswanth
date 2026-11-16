@@ -1,6 +1,6 @@
 # Mallarapu Yaswanth — Personal Portfolio
 
-A static, multi-page professional portfolio for Mallarapu Yaswanth, published at [mallarapuyaswanth.me](https://mallarapuyaswanth.me/).
+mallarapuyaswanth.me
 
 ## Site structure
 
