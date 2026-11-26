@@ -218,7 +218,7 @@ class StaticIntegrityTests(unittest.TestCase):
             path for path in ROOT.glob("*/index.html")
             if path.parent != ROOT and path.name == "index.html"
         )
-        self.assertGreaterEqual(len(detail_pages), 33, "Expected project and category detail pages.")
+        self.assertGreaterEqual(len(detail_pages), 21, "Expected project and category detail pages.")
 
         expected_routes = {f"/{path.parent.name}/" for path in detail_pages}
         for page_path in detail_pages:
@@ -264,14 +264,85 @@ class StaticIntegrityTests(unittest.TestCase):
             'href="/education/"',
             'href="/certificates/"',
             'href="/bachelor-finance-manager/"',
-            'href="/indian-dance-classification/"',
-            'href="/ejite-journal-management-system/"',
+            'href="/personal-finance-intelligence/"',
+            'href="/medical-evidence-dataset-pipeline/"',
+            'href="/head-exercise-application/"',
             'href="/learn-norwegian/"',
-            'href="/webrtc-voice-chat/"',
-            'href="/python-terminal-games/"',
+            'href="/grapecrux/"',
         ]
         for link in required_links:
             self.assertIn(link, self.source, f"Homepage is missing detail-page link: {link}")
+
+    def test_project_directory_lists_all_current_public_project_repositories(self) -> None:
+        projects = (ROOT / "projects" / "index.html").read_text(encoding="utf-8")
+        repositories = {
+            "Bachelor-Finance-Manager",
+            "Define-By-Example",
+            "Dr.-Mujahid-Tabassum",
+            "Dr.-Saju-Mohanan",
+            "GrapeCrux",
+            "Head-Exercise-Application",
+            "Home",
+            "Learn-Norwegian",
+            "Personal-Finance-Intelligence",
+            "Prof.-Dr.-Prakash-Divakaran",
+            "Puppireddy-Vishwateja",
+            "SUNKING-GROUP",
+            "Tiruvanamalai",
+            "useDAM-MallarapuYaswanth",
+            "Vidya-Tilak-College-of-Management-Foundation",
+        }
+        for repository in repositories:
+            self.assertIn(
+                f"https://github.com/MYG-1107/{repository}",
+                projects,
+                f"Project directory is missing public repository: {repository}",
+            )
+        self.assertEqual(projects.count("https://github.com/MYG-1107/"), len(repositories))
+
+        parser = PortfolioHTMLParser()
+        parser.feed(projects)
+        parser.close()
+        self.assertEqual(
+            projects.count('<article class="listing-card">'),
+            len(repositories),
+            "Each public project repository should have one project card.",
+        )
+        for anchor in parser.anchors:
+            href = anchor.get("href", "")
+            parsed = urlparse(href)
+            if parsed.scheme or parsed.netloc:
+                if anchor.get("target", "").lower() == "_blank":
+                    rel = set(anchor.get("rel", "").lower().split())
+                    self.assertIn("noopener", rel, f"Missing rel=noopener: {href}")
+                    self.assertIn("noreferrer", rel, f"Missing rel=noreferrer: {href}")
+                continue
+            relative_path = unquote(parsed.path).lstrip("/")
+            if relative_path:
+                target = ROOT / relative_path
+                if target.is_dir():
+                    target = target / "index.html"
+                self.assertTrue(target.is_file(), f"Missing project-directory link target: {href}")
+
+        removed_routes = (
+            "claim-verification-service",
+            "devotional-video-playlist",
+            "ejite-journal-management-system",
+            "financefit",
+            "font-explorer",
+            "indian-dance-classification",
+            "language-learning-forum",
+            "photo-gallery",
+            "python-terminal-games",
+            "voxroom",
+            "webrtc-voice-chat",
+            "zen-timer",
+        )
+        for route in removed_routes:
+            self.assertFalse(
+                (ROOT / route / "index.html").exists(),
+                f"Stale project page remains: {route}",
+            )
 
     def test_sitemap_robots_and_repository_hygiene(self) -> None:
         import xml.etree.ElementTree as ET
